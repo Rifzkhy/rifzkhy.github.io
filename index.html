@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Rifzkhy</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header id="header">
+		<a href="https://www.instagram.com/rifzkhy/" target="_blank" class="logo">Rifzkhy</a>
+		<div class="toggle"></div>
+		<ul class="navigation">
+			<li><a href="#home">home</a></li>
+			<li><a href="#info">info</a></li>
+			<li><a href="">exit</a></li>
+		</ul>
+	</header>
+	<section>
+		<img src="images\stars.png" id="stars" class="layer-1">
+		<img src="images\stars2.png" id="stars2" class="layer-2">
+		<img src="images\moon.png" id="moon" class="layer-3">
+		<!--<h2 id="text">Eid Mubarak</h2>-->
+		<img src="images\rock.png" id="rock" class="layer-4">
+		<img src="images\masjid.png" id="masjid" class="layer-5">
+		<img src="images\bottom.png" id="bottom">
+		<!--<img src="images\lamp.png" id="lamp">-->
+	</section>
+
+	<div class="sec">
+		<h2 id="home">Welkomtol</h2>
+		<br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+	<script type="text/javascript">
+		let stars = document.getElementById('stars');
+		let stars2 = document.getElementById('stars2');
+		let moon = document.getElementById('moon');
+		let rock = document.getElementById('rock');
+		let masjid = document.getElementById('masjid');
+		let text = document.getElementById('text');
+		let header = document.getElementById('header');
+
+		window.addEventListener('scroll', function(){
+			let value = window.scrollY;
+			stars.style.bottom = value * 0.1 + '%';
+			moon.style.bottom = value * -0.30 + 'px';
+			rock.style.bottom = value * -0.20 + 'px';
+			masjid.style.bottom = value * -0.15 + 'px';
+		})
+
+		const toggleMenu = document.querySelector('.toggle');
+		const navigation = document.querySelector('.navigation');
+		toggleMenu.onclick = function(){
+			toggleMenu.classList.toggle('active');
+			navigation.classList.toggle('active');
+		}
+	</script>
+	<!--<script type="text/javascript">
+		let layer_1 = document.querySelector('.layer-1');
+            let layer_2 = document.querySelector('.layer-2');
+            let layer_3 = document.querySelector('.layer-3');
+            let layer_4 = document.querySelector('.layer-4');
+            let layer_5 = document.querySelector('.layer-5');
+            window.onscroll = function(){
+                let Y = window.scrollY;
+                layer_1.style.transform = 'translateY('+ Y/1.5 +'px)';
+                layer_2.style.transform = 'translateY('+ Y/1.7 +'px)';
+                layer_3.style.transform = 'translateY('+ Y/1.5 +'px)';
+                layer_4.style.transform = 'translateY('+ Y/2 +'px)';
+                layer_5.style.transform = 'translateY('+ Y/3 +'px)';
+            }
+	</script>-->
+</body>
+</html>
