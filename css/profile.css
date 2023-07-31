@@ -1,0 +1,63 @@
+@font-face {
+  font-family: font;
+  src: url(../src/font.TTF);
+}
+
+.text-line {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: dash 5s linear forwards, filling 5s ease-in forwards;
+  font-size: 100px;
+  padding-top: 100px;
+}
+
+.text-line text {
+  font-family: font;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes filling {
+  0%, 100% { fill: black; fill-opacity: 0; }
+}
+
+.wrapper {
+    height: 0;
+  display: grid;
+  place-items: center;
+}
+
+.typing-demo {
+  width: 22ch;
+  animation: typing 4s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+.model3d{
+background-image: url(../logo.png);
+ background-color: #fff;
+
+    
+}
