@@ -51,19 +51,20 @@ background-color: #fff;
 }
 
 .col .card{
+  left: 10%;
   width: 18rem;
-	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+  height: 26rem;
+	/* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8); */
 	transform-style: preserve-3d;
 }
 
 .profile-pics{
 	position: absolute;
-	top: 30%;
-	left: 50%;
-  transform: translateZ(50px) scaleY(1);
-	transform: translate3d(-50%, -50%, 20px) scale(1);
-	max-width: 175px;
+	top: 20px;
+	left: 20px;
+  transform: translateZ(20px);
+	/* transform: translate3d(-100%, -50%, 10px); */
+	max-width: 100px;
 	transition: 0.5s;
-	z-index: 100;
 	border-radius: 15px;
 }
