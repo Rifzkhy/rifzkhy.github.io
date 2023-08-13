@@ -1,4 +1,6 @@
 body{
     /* background-color: gray; */
     height: 100vh;
+    color: black;
+    scroll-behavior: smooth;
 }

@@ -3,37 +3,25 @@
   src: url(../src/font.TTF);
 }
 
-.text-line {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: dash 5s linear forwards, filling 5s ease-in forwards;
-  font-size: 100px;
-  padding-top: 100px;
+section {
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
-.text-line text {
-  font-family: font;
-  font-weight: normal;
-  font-style: normal;
-}
 
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
 
-@keyframes filling {
-  0%, 100% { fill: black; fill-opacity: 0; }
-}
 
 .wrapper {
     height: 0;
   display: grid;
   place-items: center;
+  padding-bottom: 100px;
 }
 
 .typing-demo {
+  margin-top: 10px;
   width: 22ch;
   animation: typing 4s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
@@ -60,4 +48,22 @@
 background-color: #fff;
 
     
+}
+
+.col .card{
+  width: 18rem;
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+	transform-style: preserve-3d;
+}
+
+.profile-pics{
+	position: absolute;
+	top: 30%;
+	left: 50%;
+  transform: translateZ(50px) scaleY(1);
+	transform: translate3d(-50%, -50%, 20px) scale(1);
+	max-width: 175px;
+	transition: 0.5s;
+	z-index: 100;
+	border-radius: 15px;
 }
