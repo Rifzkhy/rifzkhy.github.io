@@ -22,8 +22,8 @@ align-items: center;
 
 .typing-demo {
   margin-top: 10px;
-  width: 22ch;
-  animation: typing 4s steps(22), blink .5s step-end infinite alternate;
+  width: 10.3ch;
+  animation: typing 4s steps(10), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
@@ -51,7 +51,6 @@ background-color: #fff;
 }
 
 .col .card{
-  left: 10%;
   width: 18rem;
   height: 26rem;
 	/* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8); */
@@ -67,4 +66,14 @@ background-color: #fff;
 	max-width: 100px;
 	transition: 0.5s;
 	border-radius: 15px;
+}
+
+.skill-certificate img {
+  width: 20rem;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.award-certificate img {
+  width: 20rem;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
