@@ -1,6 +1,19 @@
 body{
-    /* background-color: gray; */
     height: 100vh;
-    color: black;
+    color: #101010;
+    background-color: #e3e3e3;
     scroll-behavior: smooth;
+}
+
+.content{
+    display: none;
+}
+
+.loader{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e3e3e3;
+    background-color: black;
 }
