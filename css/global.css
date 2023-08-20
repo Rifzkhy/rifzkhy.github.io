@@ -1,5 +1,6 @@
 body{
     height: 100vh;
+    overflow-x: hidden;
     color: #101010;
     background-color: #e3e3e3;
     scroll-behavior: smooth;
