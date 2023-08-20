@@ -18,3 +18,7 @@ body{
     color: #e3e3e3;
     background-color: black;
 }
+
+img{
+    transition: .5s;
+}
