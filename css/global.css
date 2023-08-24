@@ -75,6 +75,63 @@ body{
     }
   }
 
+  .write {
+    overflow: hidden;
+    border-right: 2px solid transparent;
+    width: auto;
+    padding: 10px 30px; 
+    box-sizing: border-box;
+    display: inline-block;
+    max-width: 100%;
+    word-wrap: break-word; 
+    position: relative; 
+  }
+
+  .write::after {
+    content: "|";
+    position: absolute;
+    animation: blink-carets 1s infinite;
+    color: #e3e3e3;
+  }
+
+.typing {
+    display: inline-block;
+    border-right: 2px solid transparent;
+}
+
+.typing-effect {
+    animation: typing 1s steps(20, end), blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-carets {
+    0%,
+    100% {
+      opacity: 1;
+    } /* Fully visible caret at the start and end of the animation */
+    50% {
+      opacity: 0;
+    } /* Invisible caret at the middle of the animation */
+  }
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #e3e3e3;
+    }
+}
+
+
 .content{
     display: none;
     overflow: hidden;

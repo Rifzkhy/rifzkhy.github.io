@@ -4,10 +4,66 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Typing Effect</title>
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* CSS to hide the text initially and control text overflow */
+      .write {
+        overflow: hidden;
+        border-right: 2px solid transparent;
+        width: auto; /* Adjust the width as needed */
+        padding: 10px 30px; /* Set 10px padding top and bottom, 30px padding left and right */
+        box-sizing: border-box;
+        display: inline-block;
+        max-width: 100%;
+        word-wrap: break-word; /* Allow text to wrap to a new line */
+        position: relative; /* Add position relative for caret animation */
+      }
+
+      .write::after {
+        content: "|"; /* Display a vertical bar as the caret */
+        position: absolute; /* Position the caret absolutely within the container */
+        animation: blink-caret 1s infinite; /* Apply the blinking animation */
+        color: #e3e3e3; /* Set the caret color to red */
+      }
+
+      @keyframes blink-caret {
+        0%,
+        100% {
+          opacity: 1;
+        } /* Fully visible caret at the start and end of the animation */
+        50% {
+          opacity: 0;
+        } /* Invisible caret at the middle of the animation */
+      }
+    </style>
   </head>
   <body>
-    <div class="typing"></div>
-    <script src="script.js"></script>
+    <h1 class="write">
+      Hello! I'm Rifzkhy, a Fullstack Developer who is deeply passionate about
+      3D modeling, game development, chatbot creation, and digital art. My goal
+      is to create simple and clean solutions that deliver impactful experiences
+      to users.
+    </h1>
+
+    <script>
+      // JavaScript for the typing effect
+      const elements = document.querySelectorAll(".write");
+
+      elements.forEach((element) => {
+        const text = element.textContent;
+        element.textContent = "";
+
+        let i = 0;
+
+        function type() {
+          if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, 50); // Adjust typing speed here (in milliseconds)
+          }
+        }
+
+        type();
+      });
+    </script>
   </body>
 </html>

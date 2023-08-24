@@ -7,7 +7,8 @@
   <title>Muhammad Rifzkhy All Fhayed</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
-  <link href="./css/global.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="./css/global.css" rel="stylesheet">
   </link>
   <link href="./css/profile.css" rel="stylesheet">
   </link>
@@ -25,30 +26,30 @@
     <!-- TODO: Landing page -->
     <section>
       <div align="center">
-        <h1 class="typing"></h1>
+        <h1 class="write">Rifzkhy</h1>
         <h4>PORTFOLIO</h4>
         </div> 
     </section>
 
     <!-- TODO: About Me -->
     <section class="about" style="background-color: #101010; color: #e3e3e3;">
-      <div class="jumbotron p-5">
-        <div class="title pt-5 js-scroll fade-in-bottom" align="center">
+      <div class="jumbotron p-5" align="center">
+        <div class="title js-scroll fade-in-bottom">
           <h1>ABOUT ME</h1>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-10">
-            <h3 class="js-scroll fade-in-bottom">MUHAMMAD RIFZKHY ALL FHAYED</h3>
-            <p class="js-scroll fade-in-bottom" style="text-align: justify;">Hello! I'm Rifzkhy, a Fullstack Developer who is deeply passionate
+        <div class="row pt-3 justify-content-center">
+          <div class="col p-3">
+            <h3 class="write js-scroll fade-in-bottom">MUHAMMAD RIFZKHY ALL FHAYED</h3>
+            <p class="write pt-3 js-scroll fade-in-bottom" style="text-align: justify;">Hello! I'm Rifzkhy, a Fullstack Developer who is deeply passionate
               about 3D modeling, game development, chatbot creation, and digital art. My goal is to create simple and
               clean solutions that deliver impactful experiences to users.</p>
-          </div>
-          <div class="col" align="center">
-            <div class="card js-scroll fade-in-bottom" data-tilt>
-              <!-- <img loading="lazy"src="src/rifzkhy.jpg" class="card-img-top" alt="..."> -->
+            </div>
+          <div class="col js-scroll fade-in-bottom">
+            <div class="card" data-tilt>
               <img loading="lazy" src="./src/rifzkhy.webp" class="profile-pics">
               <div class="card-body">
-                <button type="button" class="btn btn-secondary" style="width: 250px;" disabled>Hire me</button>
+                <button type="button" class="btn btn-secondary" style="width: 250px;" disabled>Profile</button>
+                <button type="button" class="btn btn-secondary mt-3" style="width: 250px;" disabled>Hire me</button>
               </div>
             </div>
           </div>
@@ -140,8 +141,8 @@
         <h1>PROJECT</h1>
       </div>
       <div class="row pt-3">
-        <div class="col">
-          <div class="card js-scroll fade-in-bottom" data-tilt align="center" style="width: 18rem;">
+        <div class="col js-scroll fade-in-bottom">
+          <div class="card" data-tilt align="center" style="width: 18rem;">
             <img loading="lazy" src="./src/matsuri-ai.webp" class="project-pics">
             <img src="./src/whatsapp-background.webp" class="card-img-top">
             <div class="card-body">
@@ -158,7 +159,7 @@
 
     <!-- TODO: Certificate -->
     <section>
-      <div class="jumbotron p-3">
+      <div class="jumbotron p-5 ">
         <div class="title pt-5 js-scroll fade-in-bottom" align="center">
           <h1>CERTIFICATE</h1>
         </div>
@@ -184,6 +185,24 @@
       </div>
     </section>
 
+    <!-- TODO: Social media -->
+    <section class="project" style="background-color: #101010; color: #e3e3e3;"><div class="jumbotron p-3">
+      <div class="title pt-5 js-scroll fade-in-bottom" align="center">
+        <h1>SOCIAL MEDIA</h1>
+      </div>
+      <div class="social-media" align="center">
+        <div class="row p-3">
+          <div class="col">
+            <a href="https://www.instagram.com/rifzkhy/" class="btn btn-secondary m-1 js-scroll fade-in-bottom"><i class="bi bi-instagram"></i> Instagram</a>
+            <a href="https://twitter.com/Rifzkhy" class="btn btn-secondary m-1 js-scroll fade-in-bottom"><i class="bi bi-twitter"></i> Twitter</a>
+            <a href="https://www.facebook.com/rifzkhy/" class="btn btn-secondary m-1 js-scroll fade-in-bottom"><i class="bi bi-facebook"></i> Facebook</a>
+            <a href="https://github.com/Rifzkhy" class="btn btn-secondary m-1 js-scroll fade-in-bottom"><i class="bi bi-github"></i> Github</a>
+            <a href="" class="btn btn-secondary m-1 js-scroll fade-in-bottom"><i class="bi bi-reddit"></i> Reddit</a>
+          </div>
+        </div>
+      </div>
+    </div></section>
+
   </div>
 
   <script src="script/global.js"></script>
@@ -200,11 +219,12 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script>
-    $(window).on('load', function () {
-      $('html, body').animate({ scrollTop: 0 });
-      $(".loader").fadeOut(1000);
-      $(".content").fadeIn(1000);
-    });
+    $(window).on("load", function () {
+    $("html, body").animate({ scrollTop: 0 });
+    $(".loader").fadeOut(1000);
+    $(".content").fadeIn(1000);
+    setTimeout(type, 1000);
+  });
   </script>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
