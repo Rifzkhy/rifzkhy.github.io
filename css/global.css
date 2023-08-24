@@ -1,24 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+  }
+
 body{
     height: 100vh;
     overflow-x: hidden;
-    color: #101010;
-    background-color: #e3e3e3;
+    color: #e3e3e3;
+    background-color: #303030;
     scroll-behavior: smooth;
 }
 
+/* TODO: Scroll animation */
+.js-scroll {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+  
+  .js-scroll.scrolled {
+    opacity: 1;
+  }
+.scrolled.fade-in {
+    animation: fade-in 1s ease-in-out both;
+  }
+  .scrolled.fade-in-bottom {
+    animation: fade-in-bottom 1s ease-in-out both;
+  }
+  .scrolled.slide-left {
+    animation: slide-in-left 1s ease-in-out both;
+  }
+  .scrolled.slide-right {
+    animation: slide-in-right 1s ease-in-out both;
+  }
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-right {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in-bottom {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
 .content{
     display: none;
+    overflow: hidden;
 }
 
 .loader{
     height: 100vh;
     display: flex;
+    overflow: hidden;
     justify-content: center;
     align-items: center;
     color: #e3e3e3;
     background-color: black;
-}
-
-img{
-    transition: .5s;
 }

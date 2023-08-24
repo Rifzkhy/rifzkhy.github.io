@@ -43,18 +43,35 @@ background-color: #fff;
 }
 
 .about .card .card-body{
+  left: 2px;
   position: absolute;
 	top: 270px;
   transform: translateZ(20px);
-  transition: .5s;
+  transition: all ease-in-out .5s;
   opacity: 1;
 }
 .about .card:hover .card-body{
   position: absolute;
 	top: 300px;
   transform: translateZ(20px);
-  transition: .5s;
   opacity: 0;
+}
+
+/* TODO: Skill */
+.skill .col img{
+  width: 80px;
+}
+
+.skill .col p{
+  padding-top: 10px;
+  transform: translateY(-10px);
+  transition: all ease-in-out .5s;
+  opacity: 0;
+}
+
+.skill .col:hover p{
+  transform: translateY(0px);
+  opacity: 1;
 }
 
 /* TODO: Project Card */
@@ -70,7 +87,6 @@ background-color: #fff;
 	max-width: 150px;
   transform: translateZ(20px);
 	border-radius: 5px;
-  transition: .5s;
 }
 
 .project .card .card-body{
