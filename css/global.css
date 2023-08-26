@@ -3,6 +3,7 @@
 * {
   font-family: "JetBrains Mono", monospace;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .dm-sans {
@@ -15,7 +16,6 @@ body::-webkit-scrollbar {
 
 body {
   height: 100vh;
-  overflow-x: hidden;
   color: #e3e3e3;
   background-color: #303030;
   scroll-behavior: smooth;
