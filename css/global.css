@@ -1,17 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500&family=JetBrains+Mono:wght@500&display=swap");
 
-*::-webkit-scrollbar {
-  display: none;
-}
-
 * {
   font-family: "JetBrains Mono", monospace;
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 .dm-sans {
   font-family: "DM Sans", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  overflow-x: hidden;
+  display: none;
 }
 
 body {
