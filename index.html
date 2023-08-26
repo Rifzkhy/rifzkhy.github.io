@@ -22,16 +22,16 @@
     <!-- TODO: Landing page -->
     <section>
       <div align="center">
-        <h1 class="typewrite1 dm-sans"></h1>
+        <h1 class="typewrite1 dm-sans marks"></h1>
         <h4 class="appear">PORTFOLIO</h4>
         </div> 
     </section>
 
     <!-- TODO: About Me -->
     <section class="about" style="background-color: #101010; color: #e3e3e3;">
-      <div class="jumbotron p-5" align="center">
+      <div class="jumbotron p-3" align="center">
         <div class="title appear" >
-          <h1 class="dm-sans">ABOUT ME</h1>
+          <h1 class="dm-sans  marks">ABOUT ME</h1>
         </div>
         <div class="row pt-3 justify-content-center">
           <div class="col-10 col-md-5 appear">
@@ -40,7 +40,7 @@
             </div>
           <div class="col-0 col-md-5 appear">
             <div class="card" data-tilt>
-              <img loading="lazy" src="./src/rifzkhy.webp" class="profile-pics">
+              <img loading="lazy" src="./src/rif.webp" class="profile-pics">
               <div class="card-body">
                 <button type="button" class="btn btn-secondary profile" style="width: 250px;" disabled>Profile</button>
                 <button type="button" class="btn btn-secondary mt-3 email" style="width: 250px;" disabled><i class="bi bi-envelope"></i> rif@jad.li</button>
@@ -75,9 +75,9 @@
 
     <!-- TODO: Education -->
     <section class="education">
-      <div class="jumbotron p-5">
+      <div class="jumbotron p-3">
         <div class="title appear" align="center">
-          <h1 class="dm-sans">EDUCATION</h1>
+          <h1 class="dm-sans  marks">EDUCATION</h1>
         </div>
         <div class="row pt-3 justify-content-center">
           <div class="col-10 col-md-6">
@@ -148,9 +148,9 @@
 
     <!-- TODO: Milestone -->
     <section  style="background-color: #101010; color: #e3e3e3;">
-        <div class="jumbotron p-5">
+        <div class="jumbotron p-3">
           <div class="title appear" align="center">
-            <h1 class="dm-sans">MILESTONE</h1>
+            <h1 class="dm-sans  marks">MILESTONE</h1>
           </div>
         </div>
     </section>
@@ -160,7 +160,7 @@
       <div class="jumbotron p-3">
         <div class="designing">
         <div class="title pt-5 appear">
-          <h1 class="dm-sans">DESIGNING</h1>
+          <h1 class="dm-sans  marks">DESIGNING</h1>
         </div>
         <div class="row pt-3">
           <div class="col p-3 appear">
@@ -204,7 +204,7 @@
 
         <div class="programming">
       <div class="title pt-5 appear">
-        <h1 class="dm-sans">PROGRAMMING</h1>
+        <h1 class="dm-sans  marks">PROGRAMMING</h1>
       </div>
       <div class="row pt-3">
         <div class="col p-3 appear">
@@ -236,7 +236,7 @@
     <section class="project" style="background-color: #101010; color: #e3e3e3;">
       <div class="jumbotron p-3">
       <div class="title appear" align="center">
-        <h1 class="dm-sans">PROJECT</h1>
+        <h1 class="dm-sans marks">PROJECT</h1>
       </div>
       <div class="row pt-3">
         <div class="col appear">
@@ -257,9 +257,9 @@
 
     <!-- TODO: Certificate -->
     <section>
-      <div class="jumbotron p-5 ">
+      <div class="jumbotron p-3 ">
         <div class="title pt-5 appear" align="center">
-          <h1 class="dm-sans">SERTIFIKAT</h1>
+          <h1 class="dm-sans marks">SERTIFIKAT</h1>
         </div>
         <div class="certificate">
           <div class="row p-1">
@@ -272,7 +272,7 @@
           </div>
         </div>
         <div class="title pt-5 appear" align="center">
-          <h1 class="dm-sans">PIAGAM</h1>
+          <h1 class="dm-sans marks">PIAGAM</h1>
         </div>
         <div class="certificate">
           <div class="row p-1">
@@ -286,7 +286,7 @@
     <!-- TODO: Social media -->
     <section class="project" style="background-color: #101010; color: #e3e3e3;"><div class="jumbotron p-3">
       <div class="title pt-5" align="center">
-        <h1 class="dm-sans">SOCIAL MEDIA</h1>
+        <h1 class="dm-sans marks">SOCIAL MEDIA</h1>
       </div>
       <div class="social-media" align="center">
         <div class="row p-3 justify-content-center">
@@ -339,7 +339,7 @@
       waitUntilVisible: true,
     }).go();
     new TypeIt(".typewrite3", {
-      strings: ["<mark>C:/rifzkhy/about/Who am I?</mark>", "I am Rifzkhy, a fullstack programmer based in Indonesia. In my career journey, I have committed to keep learning and growing in the world of programming."," ","<mark>C:/rifzkhy/about/What is my goal?</mark>","My goal is to devote myself in creating programs that can simplify people's daily lives. I believe that technology can be a powerful tool to help society, and I strive to contribute through the codes I write."," ","<i>- Member of Kukang Developer</i>"],
+      strings: ["<mark>C:/rifzkhy/about/Who-am-I?</mark>", "I am Rifzkhy, a fullstack programmer based in Indonesia. In my career journey, I have committed to keep learning and growing in the world of programming."," ","<mark>C:/rifzkhy/about/What-is-my-goal?</mark>","My goal is to devote myself in creating programs that can simplify people's daily lives. I believe that technology can be a powerful tool to help society, and I strive to contribute through the codes I write."," ","<i>- Member of Kukang Developer</i>"],
       speed: 10,
       waitUntilVisible: true,
     }).go();
@@ -352,7 +352,8 @@
   <script type="text/javascript" src="src/vanilla-tilt.js">
     VanillaTilt.init(document.querySelector(".col"), {
       max: 25,
-      speed: 400
+      speed: 400,
+      gyroscope: false,
     });
   </script>
 

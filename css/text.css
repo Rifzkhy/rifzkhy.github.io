@@ -1,6 +1,10 @@
 mark {
-  background-color: white;
+  background-color: #feb252;
   border-radius: 1px;
+}
+
+.marks {
+  color: #feb252;
 }
 
 .typewrite3 {

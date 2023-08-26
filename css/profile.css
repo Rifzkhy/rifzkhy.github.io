@@ -88,6 +88,13 @@
   opacity: 1;
 }
 
+.about .card .card-icon {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  transform: translateZ(15px);
+}
+
 .about .card .card-icon img {
   position: absolute;
   right: 50;
