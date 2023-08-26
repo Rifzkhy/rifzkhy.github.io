@@ -1,148 +1,175 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-*{
-    font-family: 'Poppins', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500&family=JetBrains+Mono:wght@500&display=swap");
+
+* {
+  font-family: "JetBrains Mono", monospace;
+  scroll-behavior: smooth;
 }
 
-body::-webkit-scrollbar{
-    display: none;
-  }
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+}
 
-body{
-    height: 100vh;
-    overflow-x: hidden;
-    color: #e3e3e3;
-    background-color: #303030;
-    scroll-behavior: smooth;
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  color: #e3e3e3;
+  background-color: #303030;
+  scroll-behavior: smooth;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ! Scroll top */
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+/* TODO: Loading animation  */
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s;
+}
+
+@-webkit-keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
 }
 
 /* TODO: Scroll animation */
 .js-scroll {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.js-scroll.scrolled {
+  opacity: 1;
+}
+.scrolled.fade-in {
+  animation: fade-in 1s ease-in-out both;
+}
+.scrolled.fade-in-bottom {
+  animation: fade-in-bottom 1s ease-in-out both;
+}
+.scrolled.slide-left {
+  animation: slide-in-left 1s ease-in-out both;
+}
+.scrolled.slide-right {
+  animation: slide-in-right 1s ease-in-out both;
+}
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100px);
     opacity: 0;
-    transition: opacity 500ms;
   }
-  
-  .js-scroll.scrolled {
+  100% {
+    transform: translateX(0);
     opacity: 1;
   }
-.scrolled.fade-in {
-    animation: fade-in 1s ease-in-out both;
-  }
-  .scrolled.fade-in-bottom {
-    animation: fade-in-bottom 1s ease-in-out both;
-  }
-  .scrolled.slide-left {
-    animation: slide-in-left 1s ease-in-out both;
-  }
-  .scrolled.slide-right {
-    animation: slide-in-right 1s ease-in-out both;
-  }
-  @keyframes slide-in-left {
-    0% {
-      transform: translateX(-100px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes slide-in-right {
-    0% {
-      transform: translateX(100px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes fade-in-bottom {
-    0% {
-      transform: translateY(50px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .write {
-    overflow: hidden;
-    border-right: 2px solid transparent;
-    width: auto;
-    padding: 10px 30px; 
-    box-sizing: border-box;
-    display: inline-block;
-    max-width: 100%;
-    word-wrap: break-word; 
-    position: relative; 
-  }
-
-  .write::after {
-    content: "|";
-    position: absolute;
-    animation: blink-carets 1s infinite;
-    color: #e3e3e3;
-  }
-
-.typing {
-    display: inline-block;
-    border-right: 2px solid transparent;
 }
-
-.typing-effect {
-    animation: typing 1s steps(20, end), blink-caret 0.5s step-end infinite;
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink-carets {
-    0%,
-    100% {
-      opacity: 1;
-    } /* Fully visible caret at the start and end of the animation */
-    50% {
-      opacity: 0;
-    } /* Invisible caret at the middle of the animation */
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
   }
-
-@keyframes blink-caret {
-    from, to {
-        border-color: transparent;
-    }
-    50% {
-        border-color: #e3e3e3;
-    }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
-
-
-.content{
-    display: none;
-    overflow: hidden;
+@keyframes fade-in-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-
-.loader{
-    height: 100vh;
-    display: flex;
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
-    color: #e3e3e3;
-    background-color: black;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

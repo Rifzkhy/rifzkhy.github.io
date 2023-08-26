@@ -1,95 +1,144 @@
-@font-face {
-  font-family: font;
-  src: url(../src/font.TTF);
+.model3d {
+  /* background-image: url(../logo.png); */
+  background-color: #fff;
 }
 
-section {
-min-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.model3d{
-/* background-image: url(../logo.png); */
-background-color: #fff;
-
-    
-}
-
-.about .card{
+.about .card {
   width: 18rem;
   height: 26rem;
-	/* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8); */
-	transform-style: preserve-3d;
+  /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8); */
+  transform-style: preserve-3d;
 }
 
 .about .card .profile-pics {
   position: absolute;
   top: 20px;
-	left: 18px;
-	max-width: 250px;
+  left: 18px;
+  max-width: 250px;
   transform: translateZ(20px);
-	border-radius: 5px;
-  transition: .5s;
+  border-radius: 5px;
+  transition: 0.5s;
 }
 
-.about .card:hover .profile-pics{
-	position: absolute;
-	top: 20px;
-	left: 20px;
-	/* transform: translate3d(-100%, -50%, 10px); */
-	max-width: 100px;
+.about .card:hover .profile-pics {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  max-width: 100px;
 }
 
-.about .card .card-body{
+.about .card .card-body {
   left: 2px;
   position: absolute;
-	top: 270px;
+  top: 270px;
   transform: translateZ(20px);
-  transition: all ease-in-out .5s;
+  transition: all ease-in-out 0.5s;
+}
+.about .card .profile {
+  transform: translateZ(15px);
+  transition: all ease-in-out 0.5s;
   opacity: 1;
 }
-.about .card:hover .card-body{
-  position: absolute;
-	top: 300px;
+.about .card:hover .profile {
+  transform: translateY(55px);
+}
+
+.about .card .email {
   transform: translateZ(20px);
+  transition: all ease-in-out 2s;
+  opacity: 1;
+}
+.about .card:hover .email {
+  background-color: #00579f;
+}
+
+.about .card .card-info {
+  font-size: 12px;
+  left: 18px;
+  position: absolute;
+  top: 120px;
+  transform: translateZ(15px);
+  transition: all ease-in-out 0.5s;
   opacity: 0;
+}
+
+.about .card .card-signature {
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+  position: absolute;
+  left: 40px;
+  top: 70px;
+  transform: translateZ(30px);
+}
+
+.about .card:hover .signature {
+  animation: sign 4s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes sign {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.about .card:hover .card-info {
+  top: 160px;
+  transform: translateZ(15px);
+  opacity: 1;
+}
+
+.about .card .card-icon img {
+  position: absolute;
+  right: 50;
+  top: 50px;
+  transform: translateZ(20px);
+  transform: rotate(90deg);
+  transition: all ease-in-out 0.5s;
+}
+
+.about .card:hover .card-icon img {
+  right: 0;
+}
+
+/* TODO: Education */
+.education img {
+  border-radius: 10px;
 }
 
 /* TODO: Skill */
-.skill .col img{
-  width: 80px;
+.skill .col img {
+  width: 50px;
 }
 
-.skill .col p{
+.skill .col p {
   padding-top: 10px;
   transform: translateY(-10px);
-  transition: all ease-in-out .5s;
+  transition: all ease-in-out 0.5s;
   opacity: 0;
 }
 
-.skill .col:hover p{
+.skill .col:hover p {
   transform: translateY(0px);
   opacity: 1;
 }
 
 /* TODO: Project Card */
-.project .card{
-	/* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8); */
-	transform-style: preserve-3d;
+.project .card {
+  /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8); */
+  transform-style: preserve-3d;
 }
 
-.project .card .project-pics{
+.project .card .project-pics {
   position: absolute;
   top: 60px;
-	left: 65px;
-	max-width: 150px;
+  left: 65px;
+  max-width: 150px;
   transform: translateZ(20px);
-	border-radius: 5px;
+  border-radius: 5px;
 }
 
-.project .card .card-body{
+.project .card .card-body {
   transform: translateZ(20px);
 }
 

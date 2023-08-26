@@ -1,0 +1,9 @@
+mark {
+  background-color: white;
+  border-radius: 1px;
+}
+
+.typewrite3 {
+  text-align: justify;
+  text-justify: inter-word;
+}
