@@ -10,7 +10,7 @@
   transform-style: preserve-3d;
 }
 
-.about .card .profile-pics {
+.about .card .profile-pics-ascii {
   position: absolute;
   top: 20px;
   left: 18px;
@@ -18,13 +18,32 @@
   transform: translateZ(20px);
   border-radius: 5px;
   transition: 0.5s;
+  opacity: 1;
+}
+.about .card:hover .profile-pics-ascii {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  max-width: 100px;
+  opacity: 0;
 }
 
+.about .card .profile-pics {
+  position: absolute;
+  top: 20px;
+  left: 18px;
+  max-width: 250px;
+  transform: translateZ(19px);
+  border-radius: 5px;
+  transition: 0.5s;
+  opacity: 0;
+}
 .about .card:hover .profile-pics {
   position: absolute;
   top: 20px;
   left: 20px;
   max-width: 100px;
+  opacity: 1;
 }
 
 .about .card .card-body {
@@ -41,11 +60,12 @@
 }
 .about .card:hover .profile {
   transform: translateY(55px);
+  background-color: #00579f;
 }
 
 .about .card .email {
   transform: translateZ(20px);
-  transition: all ease-in-out 2s;
+  transition: all ease-in-out 0.5s;
   opacity: 1;
 }
 .about .card:hover .email {
@@ -72,7 +92,7 @@
 }
 
 .about .card:hover .signature {
-  animation: sign 4s ease;
+  animation: sign 4s infinite;
   animation-fill-mode: forwards;
 }
 
@@ -102,35 +122,88 @@
   transform: translateZ(20px);
   transform: rotate(90deg);
   transition: all ease-in-out 0.5s;
+  opacity: 0;
 }
 
 .about .card:hover .card-icon img {
   right: 0;
+  opacity: 1;
 }
 
 /* TODO: Education */
 .education img {
-  border-radius: 10px;
+  border-radius: 5px;
+}
+
+/* TODO: Experience */
+.experience ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+.experience ul.timeline:before {
+  content: ' ';
+    background: #FEB252;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 0%;
+    z-index: 400;
+  }
+.experience-animate ul.timeline:before {
+  animation: timeline 16s ease-in-out both;
+}
+@keyframes timeline {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 96%;
+  }
+}
+.experience ul.timeline > li {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+.experience ul.timeline > li:before {
+    content: ' ';
+    background: #101010;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #FEB252;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 405;
 }
 
 /* TODO: Skill */
-.skill .col img {
-  width: 50px;
+.skill .myProgress {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #e3e3e3;
+  border-radius: 5px;
 }
 
-.skill .col p {
-  padding-top: 10px;
-  transform: translateY(-10px);
-  transition: all ease-in-out 0.5s;
-  opacity: 0;
+.skill .myBardesign,
+.skill .myBarprogramming {
+  padding: 10px;
+  width: 0%;
+  height: 10px;
+  background-color: #FEB252;
+  text-align: center;
+  line-height: 0px;
+  color: #101010;
+  border-radius: 5px;
 }
 
-.skill .col:hover p {
-  transform: translateY(0px);
-  opacity: 1;
+/* TODO: Gallery */
+.gallery img{
+  border-radius: 5px;
 }
 
-/* TODO: Project Card */
+/* TODO: Project */
 .project .card {
   /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8); */
   transform-style: preserve-3d;

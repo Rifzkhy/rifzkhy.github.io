@@ -16,22 +16,27 @@
   <meta name="google-site-verification" content="fJfREGHZ-FD0AbIbpmXr2rZXyuHTO99H6cLlTm8s-oA" />
 </head>
 <body>
+  <!-- TODO: Landing page -->
+    <div id="loader" class="center"></div>
   <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="bi bi-chevron-double-up"></i></button>
   <div class="content">
     
-    <!-- TODO: Landing page -->
     <section>
       <div align="center">
-        <h1 class="typewrite1 dm-sans marks"></h1>
-        <h4 class="appear">PORTFOLIO</h4>
+             <pre class="typewrite1 marks"><p></p>
+   ____  _ ____ ____ _  __ _   _ __  __
+  | __ \| |  __|_   | |/ /| |_| |\ \/ /
+ | `` /| | `_| / _/| . ( |  _  | \  /
+|_|\_\|_|_|  |____|_|\_\|_| |_| /_/
+
+<h5>[ PORTFOLIO ]</h5></pre>
         </div> 
     </section>
-
     <!-- TODO: About Me -->
     <section class="about" style="background-color: #101010; color: #e3e3e3;">
       <div class="jumbotron p-3" align="center">
         <div class="title appear" >
-          <h1 class="dm-sans  marks">ABOUT ME</h1>
+          <h1 class="dm-sans  marks">About Me</h1>
         </div>
         <div class="row pt-3 justify-content-center">
           <div class="col-10 col-md-5 appear">
@@ -40,6 +45,7 @@
             </div>
           <div class="col-0 col-md-5 appear">
             <div class="card" data-tilt>
+              <img loading="lazy" src="./src/rif-ascii.webp" class="profile-pics-ascii">
               <img loading="lazy" src="./src/rif.webp" class="profile-pics">
               <div class="card-body">
                 <button type="button" class="btn btn-secondary profile" style="width: 250px;" disabled>Profile</button>
@@ -66,7 +72,7 @@
                 <p>City : Kotawaringin timur</p>
                 <p>Gender: Male</p>
               </div>
-              <div class="card-icon"><img src="src/icon/visa.webp" width="100"></div>
+              <div class="card-icon"><img src="./src/icon/visa.webp" width="100"></div>
             </div>
           </div>
         </div>
@@ -77,59 +83,44 @@
     <section class="education">
       <div class="jumbotron p-3">
         <div class="title appear" align="center">
-          <h1 class="dm-sans  marks">EDUCATION</h1>
+          <h1 class="dm-sans marks">Education</h1>
         </div>
         <div class="row pt-3 justify-content-center">
-          <div class="col-10 col-md-6">
-<div class="smk pt-2 appear">
-  <h5>2010 - 2011</h5>
-  <p>TK Babul Jannah Sampit</p>
-</div>
-<div class="smk pt-2 appear">
-  <h5>2011 - 2017</h5>
-  <p>MIN 1 Sampit</p>
-</div>
-<div class="smk pt-2 appear">
-  <h5>2017 - 2020</h5>
-  <p>SMP Negeri 2 Sampit</p>
-</div>
-<div class="smk pt-2 appear">
-  <h5>2020 - 2023</h5>
-  <p>SMK Negeri 1 Sampit</p>
-</div>
+          <div class="col-10 col-md-5">
+            <div class="typewrite4"></div>
           </div>
-          <div class="col-10 col-md-6 appear">
+          <div class="col-10 col-md-5 pt-3 appear">
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="src/carousel/1.webp" class="d-block w-100">
+                  <img src="./src/carousel/1.webp" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                  <img src="src/carousel/2.webp" class="d-block w-100">
+                  <img src="./src/carousel/2.webp" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                  <img src="src/carousel/3.webp" class="d-block w-100">
+                  <img src="./src/carousel/3.webp" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                  <img src="src/carousel/4.webp" class="d-block w-100">
+                  <img src="./src/carousel/4.webp" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                  <img src="src/carousel/5.webp" class="d-block w-100">
+                  <img src="./src/carousel/5.webp" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                  <img src="src/carousel/6.webp" class="d-block w-100">
+                  <img src="./src/carousel/6.webp" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                  <img src="src/carousel/7.webp" class="d-block w-100">
+                  <img src="./src/carousel/7.webp" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                  <img src="src/carousel/8.webp" class="d-block w-100">
+                  <img src="./src/carousel/8.webp" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                  <img src="src/carousel/9.webp" class="d-block w-100">
+                  <img src="./src/carousel/9.webp" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                  <img src="src/carousel/10.webp" class="d-block w-100">
+                  <img src="./src/carousel/10.webp" class="d-block w-100">
                 </div>
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -146,97 +137,223 @@
       </div>
     </section>
 
-    <!-- TODO: Milestone -->
-    <section  style="background-color: #101010; color: #e3e3e3;">
+    <!-- TODO: Skill Design -->
+    <section class="skill" style="background-color: #101010; color: #e3e3e3;">
+      
         <div class="jumbotron p-3">
-          <div class="title appear" align="center">
-            <h1 class="dm-sans  marks">MILESTONE</h1>
-          </div>
-        </div>
-    </section>
 
-    <!-- TODO: Skill -->
-    <section class="skill" align="center">
-      <div class="jumbotron p-3">
-        <div class="designing">
-        <div class="title pt-5 appear">
-          <h1 class="dm-sans  marks">DESIGNING</h1>
-        </div>
-        <div class="row pt-3">
-          <div class="col p-3 appear">
-            <img src="src/icon/photoshop.webp" style="border-radius: 10px;">
-            <p>Photoshop</p>
+          <div class="title pt-5 appear" align="center">
+            <h1 class="dm-sans marks">Designer</h1>
           </div>
-          <div class="col p-3 appear">
-            <img src="src/icon/premierepro.webp" style="border-radius: 10px;">
-            <p>Premiere Pro</p>
-          </div>
-          <div class="col p-3 appear">
-            <img src="src/icon/aftereffects.webp" style="border-radius: 10px;">
-            <p>After Effects</p>
-          </div>
-          <div class="col p-3 appear">
-            <img src="src/icon/paintnet.webp" >
-            <p>Paint.NET</p>
-          </div>
-          <div class="col p-3 appear">
-            <img src="src/icon/clipstudiopaint.webp" style="border-radius: 10px;">
-            <p>Clip Studio Paint</p>
-          </div>
-          <div class="col p-3 appear">
-            <img src="src/icon/gimp.webp" >
-            <p>GIMP</p>
-          </div>
-          <div class="col p-3 appear">
-            <img src="src/icon/cinema4d.webp" style="border-radius: 50%;">
-            <p>Cinema 4D</p>
-          </div>
-          <div class="col p-3 appear">
-            <img src="src/icon/blender.webp">
-            <p>Blender</p>
-          </div>
-          <div class="col p-3 appear">
-            <img src="src/icon/blockbench.webp" style="border-radius: 50%;">
-            <p>Blockbench</p>
-          </div>
-        </div>
-        </div>
 
-        <div class="programming">
-      <div class="title pt-5 appear">
-        <h1 class="dm-sans  marks">PROGRAMMING</h1>
+<div class="container text-center pt-5">
+  <div class="row">
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">Adobe Photoshop</p>
+      <div class="myProgress">
+        <div class="myBardesign" data-percent="80%"></div>
       </div>
-      <div class="row pt-3">
-        <div class="col p-3 appear">
-          <img src="src/icon/javascript.webp" >
-          <p>Javascript</p>
-        </div>
-        <div class="col p-3 appear">
-          <img src="src/icon/typescript.webp" >
-          <p>Typescript</p>
-        </div>
-        <div class="col p-3 appear">
-          <img src="src/icon/nodejs.webp" >
-          <p>NodeJS</p>
-        </div>
-        <div class="col p-3 appear">
-          <img src="src/icon/java.webp" >
-          <p>Java</p>
-        </div>
-        <div class="col p-3 appear">
-          <img src="src/icon/python.webp" >
-          <p>Python</p>
-        </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">Adobe Premiere Pro</p>
+      <div class="myProgress">
+        <div class="myBardesign" data-percent="70%"></div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">Adobe After Effects</p>
+      <div class="myProgress">
+        <div class="myBardesign" data-percent="65%"></div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">Adobe Illustrator</p>
+      <div class="myProgress">
+        <div class="myBardesign" data-percent="25%"></div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">Cinema 4D</p>
+      <div class="myProgress">
+        <div class="myBardesign" data-percent="60%"></div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">Blender</p>
+      <div class="myProgress">
+        <div class="myBardesign" data-percent="30%"></div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">Blockbench</p>
+      <div class="myProgress">
+        <div class="myBardesign" data-percent="90%"></div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="d-grid gap-2 col-6 mx-auto py-5 appear">
+  <button onclick="moveAlldesign()" class="btn btn-secondary" type="button">Show Progress</button>
+</div>
+
+        </div>
+    </section>
+
+    <!-- TODO: Skill Programming -->
+    <section class="skill">
+      
+        <div class="jumbotron p-3">
+
+          <div class="title pt-5 appear" align="center">
+            <h1 class="dm-sans marks">Developer</h1>
+          </div>
+
+<div class="container text-center pt-5">
+  <div class="row">
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">Javascript</p>
+      <div class="myProgress">
+        <div class="myBarprogramming" data-percent="80%"></div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">Typescript</p>
+      <div class="myProgress">
+        <div class="myBarprogramming" data-percent="45%"></div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">NodeJS</p>
+      <div class="myProgress">
+        <div class="myBarprogramming" data-percent="60%"></div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">Java</p>
+      <div class="myProgress">
+        <div class="myBarprogramming" data-percent="30%"></div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">PHP</p>
+      <div class="myProgress">
+        <div class="myBarprogramming" data-percent="70%"></div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">MySQL</p>
+      <div class="myProgress">
+        <div class="myBarprogramming" data-percent="50%"></div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column pt-3 appear">
+      <p class="mb-auto">Python</p>
+      <div class="myProgress">
+        <div class="myBarprogramming" data-percent="70%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-grid gap-2 col-6 mx-auto py-5 appear">
+  <button onclick="moveAllprogramming()" class="btn btn-secondary" type="button">Show Progress</button>
+</div>
+
+        </div>
+    </section>
+
+    <!-- TODO: Experience -->
+    <section class="experience" style="background-color: #101010; color: #e3e3e3;">
+      
+        <div class="jumbotron p-3">
+
+          <div class="title appear pt-5" align="center">
+            <h1 class="dm-sans marks">Experience</h1>
+          </div>
+
+          <div class="container py-5">
+	<div class="row">
+		<div class="">
+			<h4 class="appear">Jobdesc</h4>
+			<ul class="timeline">
+				<li>
+					<p class="p1"></p>
+				</li>
+				<li>
+          <p class="p2"></p>
+				</li>
+				<li>
+          <p class="p3"></p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+        </div>
+    </section>
+
+    <!-- TODO: Gallery -->
+    <section class="gallery">
+      <div class="jumbotron p-3">
+      <div class="title appear" align="center">
+        <h1 class="dm-sans marks">Gallery</h1>
+      </div>
+<div class="row justify-content-center">
+  <div class="col-10 col-md-4 pt-3 appear">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./src/carousel/1.webp" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./src/carousel/2.webp" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./src/carousel/3.webp" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+  </div>
+  <div class="col-5 col-md-4 pt-3 appear">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./src/carousel/1.webp" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./src/carousel/2.webp" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./src/carousel/3.webp" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+  </div>
+  <div class="col-5 col-md-4 pt-3 appear">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./src/carousel/1.webp" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./src/carousel/2.webp" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./src/carousel/3.webp" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+      </div>
     </section>
 
     <!-- TODO: Project -->
     <section class="project" style="background-color: #101010; color: #e3e3e3;">
       <div class="jumbotron p-3">
       <div class="title appear" align="center">
-        <h1 class="dm-sans marks">PROJECT</h1>
+        <h1 class="dm-sans marks">Project</h1>
       </div>
       <div class="row pt-3">
         <div class="col appear">
@@ -244,7 +361,7 @@
             <img loading="lazy" src="./src/matsuri-ai.webp" class="project-pics">
             <img src="./src/whatsapp-background.webp" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">MatsuriAI</h5>
+              <h5 class="card-title marks">MatsuriAI</h5>
               <p class="typewrite5 card-text">Whatsapp ChatBot using ChatGPT and BardAI</p>
               <a href="http://wa.me/6285651418066" class="btn" style="background-color: #FEB252;">Chat</a>
               <a href="#" class="btn" style="background-color: #FEB252;">Help</a>
@@ -259,15 +376,15 @@
     <section>
       <div class="jumbotron p-3 ">
         <div class="title pt-5 appear" align="center">
-          <h1 class="dm-sans marks">SERTIFIKAT</h1>
+          <h1 class="dm-sans marks">Certificate</h1>
         </div>
         <div class="certificate">
-          <div class="row p-1">
-            <div class="col p-3 appear" align="center"><img loading="lazy"src="src/certificate/Sertifikat PKL.webp" data-tilt
+          <div class="row py-5">
+            <div class="col p-3 appear" align="center"><img loading="lazy"src="./src/certificate/Sertifikat PKL.webp" data-tilt
                 data-tilt-glare></div>
-            <div class="col p-3 appear" align="center"><img loading="lazy"src="src/certificate/Sertifikat LSP front.webp" data-tilt
+            <div class="col p-3 appear" align="center"><img loading="lazy"src="./src/certificate/Sertifikat LSP front.webp" data-tilt
                 data-tilt-glare></div>
-            <div class="col p-3 appear" align="center"><img loading="lazy"src="src/certificate/Sertifikat Kompetensi front.webp" data-tilt
+            <div class="col p-3 appear" align="center"><img loading="lazy"src="./src/certificate/Sertifikat Kompetensi front.webp" data-tilt
                 data-tilt-glare></div>
           </div>
         </div>
@@ -275,8 +392,8 @@
           <h1 class="dm-sans marks">PIAGAM</h1>
         </div>
         <div class="certificate">
-          <div class="row p-1">
-            <div class="col p-3 appear" align="center"><img loading="lazy"src="src/certificate/piagam.webp" data-tilt
+          <div class="row py-5">
+            <div class="col p-3 appear" align="center"><img loading="lazy"src="./src/certificate/piagam.webp" data-tilt
                 data-tilt-glare></div>
           </div>
         </div>
@@ -290,20 +407,18 @@
       </div>
       <div class="social-media" align="center">
         <div class="row p-3 justify-content-center">
-          <div class="appear">
-            <a href="https://www.instagram.com/rifzkhy/" class="btn btn-secondary m-1 col-8 col-md-3"><i class="bi bi-instagram"></i> Instagram</a>
-            <a href="https://twitter.com/Rifzkhy" class="btn btn-secondary m-1 col-8 col-md-3"><i class="bi bi-twitter"></i> Twitter</a>
-            <a href="https://www.facebook.com/rifzkhy/" class="btn btn-secondary m-1 col-8 col-md-3"><i class="bi bi-facebook"></i> Facebook</a>
-            <a href="https://github.com/Rifzkhy" class="btn btn-secondary m-1 col-8 col-md-3"><i class="bi bi-github"></i> Github</a>
-            <a href="" class="btn btn-secondary m-1 col-8 col-md-3"><i class="bi bi-reddit"></i> Reddit</a>
-          </div>
+            <a href="https://www.instagram.com/rifzkhy/" class="btn btn-secondary m-1 col-8 col-md-3 appear"><i class="bi bi-instagram"></i> Instagram</a>
+            <a href="https://twitter.com/Rifzkhy" class="btn btn-secondary m-1 col-8 col-md-3 appear"><i class="bi bi-twitter"></i> Twitter</a>
+            <a href="https://www.facebook.com/rifzkhy/" class="btn btn-secondary m-1 col-8 col-md-3 appear"><i class="bi bi-facebook"></i> Facebook</a>
+            <a href="https://github.com/Rifzkhy" class="btn btn-secondary m-1 col-8 col-md-3 appear"><i class="bi bi-github"></i> Github</a>
+            <a href="" class="btn btn-secondary m-1 col-8 col-md-3 appear"><i class="bi bi-reddit"></i> Reddit</a>
         </div>
       </div>
     </div></section>
 
   </div>
 
-  <script src="script/global.js"></script>
+  <script src="./script/global.js"></script>
 
   <script>
     var slideUp = {
@@ -314,26 +429,11 @@
     ScrollReveal().reveal(".appear", slideUp,{
       delay: 500,
       duration: 500,
-      // reset: true,
     });
     new TypeIt(".typewrite1", {
-      speed: 200,
-      loop: true,
+      speed: 30,
       waitUntilVisible: true,
-    }).type("I'm RifZKHY")
-  .pause(500)
-  .move(-4)
-  .delete("if")
-  .type("RIF")
-  .move(4)
-  .pause(500)
-  .delete("RIFZKHY")
-  .type("Programmer")
-  .pause(500)
-  .delete("Programmer")
-  .type("Designer")
-  .pause(500)
-  .go();
+    }).go();
     new TypeIt(".typewrite2", {
       speed: 100,
       waitUntilVisible: true,
@@ -343,17 +443,37 @@
       speed: 10,
       waitUntilVisible: true,
     }).go();
+    new TypeIt(".typewrite4", {
+      strings: ["<mark>2010 - 2011</mark>","TK Babul Jannah Sampit"," ","<mark>2011 - 2017</mark>","MIN 1 Sampit"," ","<mark>2017 - 2020</mark>","SMP Negeri 2 Sampit"," ","<mark>2020 - 2023</mark>","SMK Negeri 1 Sampit"],
+      speed: 10,
+      waitUntilVisible: true,
+    }).go();
     new TypeIt(".typewrite5", {
+      speed: 50,
+      waitUntilVisible: true,
+    }).go();
+    new TypeIt(".timeline .p1", {
+      strings: ["<mark>Sekretariat Daerah Kotawaringin Timur</mark>","25 Juli 2023 - 02 Desember 2022","Sebagai peserta magang dari Sekolah SMK Negeri 1 Sampit, di tempatkan pada bagian Protokol dan Komunikasi Pimpinan"],
+      speed: 50,
+      waitUntilVisible: true,
+    }).go();
+    new TypeIt(".timeline .p2", {
+      strings: ["<mark>PT. Hayat TV Entertaiment</mark>","05 Juni 2023 - 05 November 2023","Sebagai peserta magang dari Dinas Tenaga Kerja, di tempatkan pada bagian Teknisi internet Faznet"],
+      speed: 50,
+      waitUntilVisible: true,
+    }).go();
+    new TypeIt(".timeline .p3", {
+      strings: ["<mark>BUMN</mark>"],
       speed: 50,
       waitUntilVisible: true,
     }).go();
   </script>
 
-  <script type="text/javascript" src="src/vanilla-tilt.js">
-    VanillaTilt.init(document.querySelector(".col"), {
+  <script type="text/javascript" src="./src/vanilla-tilt.js">
+    VanillaTilt.init(document.querySelectorAll(".col"), {
       max: 25,
       speed: 400,
-      gyroscope: false,
+      gyroscope: false
     });
   </script>
 
