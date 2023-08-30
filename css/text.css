@@ -10,6 +10,9 @@ mark {
 .typewrite1 {
   font-family: monospace;
   font-size: 20px;
+  line-height: 1.2;
+  margin: 0 auto;
+  margin-left: -10px;
 }
 
 .typewrite1 h5 {

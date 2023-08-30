@@ -82,3 +82,28 @@ function moveAlldesign() {
     }
   });
 }
+function moveAllprogramming() {
+  var skillBars = document.querySelectorAll(".myBarprogramming");
+
+  skillBars.forEach(function (myBarprogramming) {
+    var width = 10;
+    var numericValue = parseFloat(myBarprogramming.getAttribute("data-percent"));
+    var i = 0;
+
+    if (i == 0) {
+      i = 1;
+      var id = setInterval(frame, 10);
+
+      function frame() {
+        if (width >= numericValue) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          myBarprogramming.style.width = width + "%";
+          myBarprogramming.innerHTML = width + "%";
+        }
+      }
+    }
+  });
+}
