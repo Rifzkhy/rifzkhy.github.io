@@ -1,0 +1,345 @@
+:root {
+  --red: #C50F1F;
+  --green: #16C60C;
+  --blue: #007ACC;
+  --blue-sky: #69D6FD;
+  --white: #efefef;
+  --primary: #3E3E42;
+  --secondary: #2D2D30;
+  --primary-dark: #252526;
+  --secondary-dark: #1E1E1E;
+  --orange-primary: #FFB250;
+  --orange-secondary: #FEA94E;
+  --orange-pastel: #FFC384;
+}
+
+body {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+*::-webkit-scrollbar {
+  overflow: hidden;
+  display: none;
+  text-decoration: none;
+}
+
+section a {
+    color: gray;
+}
+footer a {
+    color: white;
+}
+
+.marked {
+    color: var(--orange-pastel);
+}
+
+.markeds {
+    background-color: var(--orange-pastel);
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+section.about {
+    background-color: var(--primary);
+}
+section.about h5{
+  text-align: left;
+}
+section.about .info p.paragraf{
+  text-indent: 20px;
+  text-align: justify;
+}
+section.about .info p{
+  text-align: justify;
+}
+section.about .cards .card{
+  width: 18rem;
+  height: 24rem;
+  display: flex;
+  transform-style: preserve-3d;
+}
+section.about .cards .first{
+  width: 90%;
+  position: absolute;
+  transition: 0.5s;
+  border-radius: 25px;
+    transform: translateZ(20px);
+    filter: grayscale(100%);
+}
+section.about .card:hover .first{
+  width: 50%;
+  filter: grayscale(0%);
+}
+
+section.about .card .experience{
+  position: absolute;
+  top: 25;
+  right: 155;
+  opacity: 0;
+  color: var(--orange-primary);
+  transition: 1s;
+}
+section.about .card:hover .experience{
+  right: 30;
+  opacity: 1;
+  transform: translateZ(15px)
+}
+section.about .card-button{
+  transition: 0.5s;
+  transform: translateZ(20px) translateY(265px);
+}
+section.about .card:hover .card-button{
+  transform: translateZ(30px) translateY(265px);
+}
+section.about .card .signature {
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+  position: absolute;
+  left: 40px;
+  top: 70px;
+  transform: translateZ(30px);
+}
+section.about .card:hover .signature {
+  animation: sign 4s infinite;
+  animation-fill-mode: forwards;
+}
+@keyframes sign {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+section.about .card .card-info{
+  text-align: left;
+  font-size: 14px;
+  position: absolute;
+  top: 200px;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateZ(10px);
+}
+section.about .card:hover .card-info{
+  top: 130px;
+  opacity: 1;
+}
+section.about .card .card-social{
+  left: 0;
+  right: 0;
+  font-size: 18px;
+  letter-spacing: 5px;
+  position: absolute;
+  top: 290px;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateZ(15px);
+}
+section.about .card:hover .card-social{
+  top: 220px;
+  opacity: 1;
+}
+
+section.certificate .carousel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section.certificate .carousel .carousel-item{
+    height: 100px;
+  }
+section.certificate .carousel img{
+  transition: .5s;
+  filter: grayscale(100);
+}
+section.certificate .carousel img:hover{
+  filter: grayscale(0);
+}
+
+/* Multi-item carousel: show 3 items per slide */
+#carousels .carousel-inner {
+  display: flex;
+}
+#carousels .carousel-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+#carousels .carousel-item a{
+  display: block;
+  flex: 0 0 calc(33.333% - 8px);
+}
+#carousels .carousel-item img{
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+@media (max-width: 900px){
+  #carousels .carousel-item a{ flex: 0 0 calc(50% - 8px); }
+}
+@media (max-width: 576px){
+  #carousels .carousel-item a{ flex: 0 0 100%; }
+}
+
+section.project {
+    background-color: var(--primary);
+}
+section.project .card{
+  width: 18rem;
+  height: 24rem;
+  display: flex;
+  transform-style: preserve-3d;
+}
+section.project .card img{
+  transition: .5s;
+  filter: grayscale(100);
+}
+section.project .card:hover img{
+  filter: grayscale(0);
+}
+section.project .card img.profile{
+  position: absolute;
+  width: 100px;
+  border-radius: 10%;
+  top: 50;
+  left: 90;
+  transition: .5s;
+  transform: translateZ(15px);
+}
+section.project .card .action{
+  filter: grayscale(100);
+}
+section.project .card:hover .action{
+  filter: grayscale(0);
+}
+section.project .server .card:hover img.profile{
+  box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 white;
+  filter: grayscale(0);
+  transform: translateZ(30px);
+}
+section.project .server .card .action{
+  position: absolute;
+  top: 200;
+  left: 76px;
+  transform: translateZ(10px);
+}
+section.project .server .property{
+  position: absolute;
+  top: 0;
+  color: white;
+  font-size: 66px;
+  transition: .5s;
+  opacity: 0;
+  text-shadow: 2px 2px 8px var(--primary);
+  transform: translateZ(0px) translateY(50px);
+}
+section.project .server .card:hover .property{
+  opacity: 1;
+  transform: translateZ(20px);
+}
+  section.project .server .card .property i.bi:nth-child(1){
+    position: absolute;
+    transform: translate(10px,-30px);
+  }
+  section.project .server .card .property i:nth-child(2){
+    position: absolute;
+    transform: translate(210px,20px);
+  }
+  section.project .server .card .property i:nth-child(3){
+    position: absolute;
+    transform: translate(-30px,100px);
+  }
+  section.project .server .card .property i:nth-child(4){
+    position: absolute;
+    transform: translate(240px,160px);
+  }
+  section.project .server .card .property i:nth-child(5){
+    position: absolute;
+    transform: translate(50px,250px);
+  }
+section.project .matsuri .card:hover img.profile{
+  box-shadow: 0 4px 8px 0 var(--orange-primary), 0 6px 20px 0 var(--orange-primary);
+  filter: grayscale(0);
+  transform: translateZ(30px);
+}
+section.project .matsuri .card .action{
+  position: absolute;
+  top: 200;
+  left: 68px;
+  transform: translateZ(10px);
+}
+section.project .matsuri .card .chat{
+  position: absolute;
+  transform: translateZ(15px);
+}
+section.project .matsuri .card .chat button:nth-child(1){
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  transition: .5s;
+  transform: translate(170px);
+}
+section.project .matsuri .card:hover .chat button:nth-child(1){
+  opacity: 1;
+  transform: translate(150px);
+}
+section.project .matsuri .card .chat button:nth-child(2){
+  position: relative;
+  top: 65px;
+  opacity: 0;
+  transition: .5s;
+  transform: translate(-135px);
+}
+section.project .matsuri .card:hover .chat button:nth-child(2){
+  opacity: 1;
+  transform: translate(-115px);
+}
+
+section.project .hayat .card:hover img.profile{
+  box-shadow: 0 4px 8px 0 red, 0 6px 20px 0 white;
+  filter: grayscale(0);
+  transform: translateZ(30px);
+}
+section.project .hayat .card .action{
+  position: absolute;
+  top: 200;
+  left: 66px;
+  transform: translateZ(10px);
+}
+
+@media screen and (min-width: 300px) {
+  section.certificate .carousel .carousel-item{
+    height: 200px;
+  }
+}
+@media screen and (min-width: 600px) {
+  section.certificate .carousel .carousel-item{
+    height: 300px;
+  }
+}
+@media screen and (min-width: 900px) {
+  section.certificate .carousel .carousel-item{
+    height: 400px;
+  }
+}
+
+.nama {
+  line-height: 1.2;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.welcome {
+  /* z-index harus lebih tinggi dari video (-1)
+     agar tampil di depan. */
+  position: relative;
+  z-index: 1;
+}
