@@ -13,6 +13,32 @@ body {
   overflow-x: hidden;
 }
 
+body.is-loading {
+  overflow: hidden;
+}
+
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: #272727;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#loading-screen img {
+  width: 96px;
+  max-width: 30vw;
+}
+
+#loading-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .justified-text {
   text-align: justify;
 }

@@ -1,4 +1,55 @@
 window.addEventListener('DOMContentLoaded', () => {
+    const loadingScreen = document.getElementById('loading-screen');
+    let loadingScreenDismissed = false;
+
+    const hideLoadingScreen = () => {
+        if (!loadingScreen || loadingScreenDismissed) {
+            return;
+        }
+
+        loadingScreenDismissed = true;
+        loadingScreen.classList.add('is-hidden');
+        document.body.classList.remove('is-loading');
+
+        setTimeout(() => {
+            if (loadingScreen.parentNode) {
+                loadingScreen.parentNode.removeChild(loadingScreen);
+            }
+        }, 450);
+    };
+
+    const monitorImages = () => {
+        if (!loadingScreen || loadingScreenDismissed) {
+            return;
+        }
+
+        const pendingImages = Array.from(document.images).filter((image) => !image.complete);
+
+        if (!pendingImages.length) {
+            requestAnimationFrame(hideLoadingScreen);
+            return;
+        }
+
+        let remaining = pendingImages.length;
+
+        const handleImageSettled = () => {
+            remaining -= 1;
+            if (remaining <= 0) {
+                hideLoadingScreen();
+            }
+        };
+
+        pendingImages.forEach((image) => {
+            image.addEventListener('load', handleImageSettled, { once: true });
+            image.addEventListener('error', handleImageSettled, { once: true });
+        });
+    };
+
+    if (loadingScreen) {
+        document.body.classList.add('is-loading');
+        window.addEventListener('load', hideLoadingScreen, { once: true });
+    }
+
     const containers = document.querySelectorAll('.cert-swiper[data-cert-path]');
     const swiperInstances = new Map();
 
@@ -105,6 +156,10 @@ window.addEventListener('DOMContentLoaded', () => {
         const swiperInstance = new Swiper(container, swiperOptions);
         swiperInstances.set(container, swiperInstance);
     });
+
+    if (loadingScreen) {
+        monitorImages();
+    }
 
     const collapsible = document.getElementById('cert-swiper-side');
     const toggleButton = document.getElementById('cert-swiper-toggle');
