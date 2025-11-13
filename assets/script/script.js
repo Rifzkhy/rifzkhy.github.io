@@ -1,12 +1,13 @@
 window.addEventListener('DOMContentLoaded', () => {
     const containers = document.querySelectorAll('.cert-swiper[data-cert-path]');
+    const swiperInstances = new Map();
 
     containers.forEach((container) => {
         const wrapper = container.querySelector('.swiper-wrapper');
         const total = parseInt(container.dataset.total, 10) || 0;
         const path = container.dataset.certPath;
         const filesAttr = container.dataset.files || '';
-    const extensionList = (container.dataset.ext || 'png,jpg,jpeg,webp')
+        const extensionList = (container.dataset.ext || 'png,jpg,jpeg,webp')
             .split(',')
             .map((name) => name.trim())
             .filter(Boolean);
@@ -60,25 +61,34 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        const swiperOptions = {
-            loop: true,
-            spaceBetween: 16,
-
-            autoplay: {
-                delay: 2000,
+        const slidesCount = wrapper ? wrapper.children.length : 0;
+        const breakpoints = {
+            0: {
+                slidesPerView: 1,
             },
+            768: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 5,
+            },
+        };
 
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 3,
-                },
-                1024: {
-                    slidesPerView: 5,
-                },
-            }
+        const maxSlidesPerView = Object.values(breakpoints).reduce((max, config) => {
+            const current = typeof config.slidesPerView === 'number' ? config.slidesPerView : 1;
+            return current > max ? current : max;
+        }, 1);
+
+        const shouldLoop = slidesCount > maxSlidesPerView;
+        const shouldAutoplay = slidesCount > 1;
+
+        const swiperOptions = {
+            loop: shouldLoop,
+            spaceBetween: 16,
+            autoplay: shouldAutoplay ? {
+                delay: 2000,
+            } : false,
+            breakpoints,
         };
 
         const paginationEl = container.querySelector('.swiper-pagination');
@@ -92,6 +102,65 @@ window.addEventListener('DOMContentLoaded', () => {
             swiperOptions.navigation = { nextEl, prevEl };
         }
 
-        new Swiper(container, swiperOptions);
+        const swiperInstance = new Swiper(container, swiperOptions);
+        swiperInstances.set(container, swiperInstance);
     });
+
+    const collapsible = document.getElementById('cert-swiper-side');
+    const toggleButton = document.getElementById('cert-swiper-toggle');
+
+    if (collapsible && toggleButton) {
+        const swiperInstance = swiperInstances.get(collapsible) || null;
+        let isExpanded = false;
+
+        const updateHeight = () => {
+            if (!isExpanded) {
+                return;
+            }
+
+            const measuredHeight = collapsible.scrollHeight;
+            collapsible.style.setProperty('--cert-swiper-max-height', `${measuredHeight}px`);
+        };
+
+        const setExpandedState = (expanded) => {
+            if (isExpanded === expanded) {
+                updateHeight();
+                return;
+            }
+
+            isExpanded = expanded;
+
+            if (expanded) {
+                updateHeight();
+                toggleButton.setAttribute('aria-expanded', 'true');
+
+                requestAnimationFrame(() => {
+                    collapsible.classList.add('is-visible');
+                    updateHeight();
+
+                    requestAnimationFrame(() => {
+                        if (swiperInstance) {
+                            swiperInstance.update();
+                        }
+
+                        updateHeight();
+                    });
+                });
+            } else {
+                collapsible.classList.remove('is-visible');
+                collapsible.style.removeProperty('--cert-swiper-max-height');
+                toggleButton.setAttribute('aria-expanded', 'false');
+            }
+        };
+
+        setExpandedState(false);
+
+        toggleButton.addEventListener('click', () => {
+            setExpandedState(!isExpanded);
+        });
+
+        window.addEventListener('resize', () => {
+            updateHeight();
+        });
+    }
 });

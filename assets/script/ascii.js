@@ -1,6 +1,21 @@
 import * as THREE from "three";
 import { AsciiEffect } from "three/addons/effects/AsciiEffect.js";
 
+const canvasProto = HTMLCanvasElement.prototype;
+if (!canvasProto.__willReadFrequentlyPatched) {
+    // Ensure the ASCII converter canvas requests a context optimized for frequent readback.
+    const originalGetContext = canvasProto.getContext;
+    canvasProto.getContext = function patchedGetContext(type, options) {
+        if (type === "2d") {
+            const mergedOptions = options ? { ...options, willReadFrequently: true } : { willReadFrequently: true };
+            return originalGetContext.call(this, type, mergedOptions);
+        }
+
+        return originalGetContext.call(this, type, options);
+    };
+    canvasProto.__willReadFrequentlyPatched = true;
+}
+
 const container = document.getElementById("ascii-container");
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
