@@ -336,6 +336,48 @@ sections {
   color: white;
 }
 
+/* Documentation */
+.documentation {
+  max-width: 1100px;
+}
+
+.documentation-intro {
+  max-width: 760px;
+  color: #ced4da;
+}
+
+.documentation-card {
+  background-color: #343A40;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.documentation-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.documentation-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: filter 0.4s ease;
+}
+
+.documentation-card:hover .documentation-image {
+  filter: grayscale(0);
+}
+
+.documentation-caption {
+  padding: 0.85rem 1rem;
+  color: #dee2e6;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
 /* Work */
 .company-grid {
   max-width: 1100px;

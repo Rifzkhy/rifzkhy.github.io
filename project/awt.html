@@ -5,23 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Menggunakan Bootstrap 5.3.0 Stable -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Project Feedback - Automatic Water</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.158/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.158/examples/jsm/"
+            }
+        }
+    </script>
     <style>
-        body { background-color: #f8f9fa; }
-        .container-custom { max-width: 700px; margin: 40px auto; }
-        .card-feedback { border: none; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card-feedback:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
-        .rating-badge { background: #e9ecef; border-radius: 20px; padding: 4px 12px; font-weight: bold; color: #0d6efd; }
+        body {
+            background: radial-gradient(circle at top, #ffffff 0%, #eef3f8 40%, #e7edf4 100%);
+            min-height: 100vh;
+        }
+
+        .container-custom {
+            max-width: 920px;
+            margin: 40px auto;
+        }
+
+        .hero-shell {
+            background: linear-gradient(135deg, rgba(13,110,253,0.08), rgba(255,255,255,0.92));
+            border: 1px solid rgba(13,110,253,0.08);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .viewer-wrap {
+            position: relative;
+            height: clamp(360px, 55vw, 520px);
+            background:
+                radial-gradient(circle at 20% 20%, rgba(13,110,253,0.12), transparent 28%),
+                radial-gradient(circle at 80% 80%, rgba(0,0,0,0.06), transparent 30%),
+                linear-gradient(180deg, #fdfefe 0%, #eaf1f7 100%);
+        }
+
+        #prototype-viewer {
+            position: absolute;
+            inset: 0;
+        }
+
+        .viewer-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 2;
+            padding: 0.45rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.82);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(13,110,253,0.12);
+            color: #0d6efd;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .viewer-reset {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 2;
+            border: 1px solid rgba(13,110,253,0.22);
+            background: rgba(255,255,255,0.9);
+            color: #0d6efd;
+            border-radius: 999px;
+            padding: 0.35rem 0.8rem;
+            font-size: 0.82rem;
+            transition: all 0.2s ease;
+        }
+
+        .viewer-reset:hover {
+            background: #0d6efd;
+            color: #fff;
+            border-color: #0d6efd;
+        }
+
+        .viewer-caption {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            /* right: 1rem; */
+            z-index: 2;
+            padding: 0.85rem 1rem;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.78);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(13,110,253,0.08);
+            color: #495057;
+            font-size: 0.95rem;
+        }
+
+        .card-feedback {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card-feedback:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .rating-badge {
+            background: #e9ecef;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-weight: bold;
+            color: #0d6efd;
+        }
     </style>
 </head>
 <body>
 
-    <div class="">
-    <!-- <img src="../assets/img/project/test.png" alt="Project Image" class="img-fluid w-100" style="max-height: 300px; object-fit: cover;"> -->
-    </div>
-
 <div class="container container-custom">
+    <section class="hero-shell shadow-sm mb-4">
+        <div class="viewer-wrap">
+            <div class="viewer-badge">3D Model</div>
+            <button id="viewer-reset" class="viewer-reset" type="button"><i class="bi bi-arrow-clockwise"></i></button>
+            <div id="prototype-viewer"></div>
+            <div class="viewer-caption">
+                By JMK48 | Automatic Water Tap
+            </div>
+        </div>
+    </section>
+
     <div class="text-center mb-5">
         <h2 class="fw-bold">Prototype Feedback</h2>
         <p class="text-muted">Respon publik yang pernah mencoba prototype ini</p>
@@ -84,18 +195,215 @@
 
 </div>
 
-<script>
+<script type="module">
+    import * as THREE from "three";
+    import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+    import { STLLoader } from "three/addons/loaders/STLLoader.js";
+    import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+
     // 1. Inisialisasi Supabase
     const supabaseUrl = 'https://hyhbtbpvevidlwmxprvh.supabase.co';
     const supabaseKey = 'sb_publishable_8cfniKiMNhCr44kdVUbz_w_vfidd9Rq';
-    const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    const _supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
     const feedbackList = document.getElementById('feedback-list');
     const feedbackForm = document.getElementById('feedback-form');
     const formContainer = document.getElementById('form-container');
     const statsContainer = document.getElementById('rating-stats');
+    const viewer = document.getElementById('prototype-viewer');
+    const resetButton = document.getElementById('viewer-reset');
+    const modelConfig = {
+        type: 'stl',
+        url: '../assets/file/automatic_water_tap.stl'
+    };
+    const defaultView = {
+        camera: new THREE.Vector3(2.8, -2.2, 5.6),
+        target: new THREE.Vector3(0, 0.5, 0)
+    };
 
-    // 2. Fungsi Cek LocalStorage (Cegah Spam)
+    // 2. Three.js viewer dasar tanpa texture.
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xf3f7fb);
+
+    const camera = new THREE.PerspectiveCamera(40, 1, .1, 100);
+    camera.position.copy(defaultView.camera);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.shadowMap.enabled = true;
+    viewer.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.target.copy(defaultView.target);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.25);
+    scene.add(ambientLight);
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.2);
+    keyLight.position.set(1, 1, 1);
+    keyLight.castShadow = true;
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0x9ec9ff, 0.9);
+    fillLight.position.set(-4, 2, -3);
+    scene.add(fillLight);
+
+    const prototypeGroup = new THREE.Group();
+    scene.add(prototypeGroup);
+
+    const bodyMaterial = new THREE.MeshStandardMaterial({ color: 0x0d6efd, roughness: 0.55, metalness: 0.35 });
+    const accentMaterial = new THREE.MeshStandardMaterial({ color: 0x0d6efd, roughness: 0.4, metalness: 0.2 });
+
+    function fitObjectToScene(object3d) {
+        const box = new THREE.Box3().setFromObject(object3d);
+        const size = box.getSize(new THREE.Vector3());
+        const center = box.getCenter(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z) || 1;
+        const scale = 2.8 / maxDim;
+
+        object3d.scale.setScalar(scale);
+        object3d.position.sub(center.multiplyScalar(scale));
+        object3d.position.y += 0.15;
+    }
+
+    function loadPrototypeModel() {
+        if (!modelConfig.url) {
+            return;
+        }
+
+        let loader;
+
+        if (modelConfig.type === 'stl') {
+            loader = new STLLoader();
+        } else if (modelConfig.type === 'obj') {
+            loader = new OBJLoader();
+        } else {
+            console.warn('Format belum didukung pada viewer ini:', modelConfig.type);
+            return;
+        }
+
+        loader.load(
+            modelConfig.url,
+            (loaded) => {
+                const model = modelConfig.type === 'stl'
+                    ? new THREE.Mesh(loaded, bodyMaterial)
+                    : loaded;
+
+                if (modelConfig.type === 'obj') {
+                    model.traverse((child) => {
+                        if (child.isMesh) {
+                            child.material = bodyMaterial;
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                        }
+                    });
+                } else {
+                    model.castShadow = true;
+                    model.receiveShadow = true;
+                }
+
+                prototypeGroup.clear();
+                prototypeGroup.add(model);
+                fitObjectToScene(model);
+
+                controls.target.copy(defaultView.target);
+                controls.update();
+            },
+            undefined,
+            (error) => {
+                console.warn('Model gagal dimuat, memakai placeholder:', error);
+            }
+        );
+    }
+
+    const basePlate = new THREE.Mesh(new THREE.CylinderGeometry(0.75, 0.9, 0.22, 32), bodyMaterial);
+    basePlate.castShadow = true;
+    basePlate.receiveShadow = true;
+    basePlate.position.y = -0.25;
+    prototypeGroup.add(basePlate);
+
+    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.28, 1.45, 28), bodyMaterial);
+    stem.castShadow = true;
+    stem.position.set(0, 0.45, 0);
+    prototypeGroup.add(stem);
+
+    const curvedBody = new THREE.Mesh(new THREE.TorusGeometry(0.82, 0.16, 18, 40, Math.PI), bodyMaterial);
+    curvedBody.rotation.z = Math.PI / 2;
+    curvedBody.rotation.y = Math.PI / 2;
+    curvedBody.position.set(0.6, 1.05, 0);
+    curvedBody.castShadow = true;
+    prototypeGroup.add(curvedBody);
+
+    const spout = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.16, 1.15, 24), bodyMaterial);
+    spout.rotation.z = -Math.PI / 3.2;
+    spout.position.set(1.25, 1.55, 0);
+    spout.castShadow = true;
+    prototypeGroup.add(spout);
+
+    const handleBase = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.16, 0.72), bodyMaterial);
+    handleBase.position.set(-0.45, 1.45, 0);
+    handleBase.castShadow = true;
+    prototypeGroup.add(handleBase);
+
+    const handleTop = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.62, 0.16), accentMaterial);
+    handleTop.position.set(-0.45, 1.82, 0);
+    handleTop.castShadow = true;
+    prototypeGroup.add(handleTop);
+
+    const knob = new THREE.Mesh(new THREE.SphereGeometry(0.12, 24, 18), accentMaterial);
+    knob.position.set(-0.45, 2.15, 0);
+    knob.castShadow = true;
+    prototypeGroup.add(knob);
+
+    prototypeGroup.rotation.y = -0.6;
+    loadPrototypeModel();
+
+    const clock = new THREE.Clock();
+
+    function resizeViewer() {
+        const width = viewer.clientWidth;
+        const height = viewer.clientHeight;
+
+        if (!width || !height) {
+            return;
+        }
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height, false);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+
+        const elapsed = clock.getElapsedTime();
+        prototypeGroup.rotation.y = -0.6 + Math.sin(elapsed * 0.35) * 0.08;
+        prototypeGroup.position.y = Math.sin(elapsed * 0.8) * 0.03;
+
+        controls.update();
+        renderer.render(scene, camera);
+    }
+
+    function resetViewer() {
+        camera.position.copy(defaultView.camera);
+        controls.target.copy(defaultView.target);
+        controls.update();
+    }
+
+    resizeViewer();
+    animate();
+
+    const viewerResizeObserver = new ResizeObserver(resizeViewer);
+    viewerResizeObserver.observe(viewer);
+
+    resetButton.addEventListener('click', resetViewer);
+
+    window.addEventListener('resize', resizeViewer);
+
+    // 3. Fungsi Cek LocalStorage (Cegah Spam)
     function checkStatus() {
         if (localStorage.getItem('awt_feedback_submitted')) {
             formContainer.innerHTML = `
@@ -106,7 +414,7 @@
         }
     }
 
-    // 3. Fungsi READ & Stats
+    // 4. Fungsi READ & Stats
     async function fetchFeedback() {
         const { data, error } = await _supabase
             .from('portfolio_feedback_awt')
@@ -143,7 +451,7 @@
         }
     }
 
-    // 4. Fungsi CREATE
+    // 5. Fungsi CREATE
     feedbackForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
