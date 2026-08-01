@@ -17,30 +17,50 @@
         }
     </script>
     <style>
+        :root {
+            --primary: #2563eb;
+            --primary-soft: #dbeafe;
+            --accent: #1d4ed8;
+            --accent-soft: #eff6ff;
+            --text: #0f172a;
+            --muted: #64748b;
+            --surface: #ffffff;
+            --surface-2: #f8fbff;
+            --border: rgba(37, 99, 235, 0.12);
+        }
+
         body {
-            background: radial-gradient(circle at top, #ffffff 0%, #eef3f8 40%, #e7edf4 100%);
+            background:
+                radial-gradient(circle at top left, rgba(37,99,235,0.14), transparent 24%),
+                radial-gradient(circle at bottom right, rgba(37,99,235,0.08), transparent 22%),
+                linear-gradient(135deg, #f8fbff 0%, #eef5ff 45%, #fdfefe 100%);
             min-height: 100vh;
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         .container-custom {
-            max-width: 920px;
-            margin: 40px auto;
+            max-width: 1180px;
+            margin: 24px auto 64px;
+            padding: 0 16px 64px;
         }
 
         .hero-shell {
-            background: linear-gradient(135deg, rgba(13,110,253,0.08), rgba(255,255,255,0.92));
-            border: 1px solid rgba(13,110,253,0.08);
-            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(255,255,255,0.97));
+            border: 1px solid var(--border);
+            border-radius: 30px;
             overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
         }
 
         .viewer-wrap {
             position: relative;
-            height: clamp(360px, 55vw, 520px);
+            height: clamp(360px, 55vw, 560px);
             background:
-                radial-gradient(circle at 20% 20%, rgba(13,110,253,0.12), transparent 28%),
-                radial-gradient(circle at 80% 80%, rgba(0,0,0,0.06), transparent 30%),
-                linear-gradient(180deg, #fdfefe 0%, #eaf1f7 100%);
+                radial-gradient(circle at 20% 20%, rgba(37,99,235,0.12), transparent 28%),
+                radial-gradient(circle at 80% 80%, rgba(37,99,235,0.06), transparent 28%),
+                linear-gradient(180deg, #fdfefe 0%, #eef7fb 100%);
         }
 
         #prototype-viewer {
@@ -55,10 +75,10 @@
             z-index: 2;
             padding: 0.45rem 0.8rem;
             border-radius: 999px;
-            background: rgba(255,255,255,0.82);
+            background: rgba(255,255,255,0.88);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(13,110,253,0.12);
-            color: #0d6efd;
+            border: 1px solid rgba(29,78,216,0.12);
+            color: var(--primary);
             font-weight: 700;
             font-size: 0.85rem;
         }
@@ -68,9 +88,9 @@
             top: 1rem;
             right: 1rem;
             z-index: 2;
-            border: 1px solid rgba(13,110,253,0.22);
-            background: rgba(255,255,255,0.9);
-            color: #0d6efd;
+            border: 1px solid rgba(29,78,216,0.2);
+            background: rgba(255,255,255,0.95);
+            color: var(--primary);
             border-radius: 999px;
             padding: 0.35rem 0.8rem;
             font-size: 0.82rem;
@@ -78,44 +98,381 @@
         }
 
         .viewer-reset:hover {
-            background: #0d6efd;
+            background: var(--primary);
             color: #fff;
-            border-color: #0d6efd;
+            border-color: var(--primary);
         }
 
         .viewer-caption {
             position: absolute;
             bottom: 1rem;
             left: 1rem;
-            /* right: 1rem; */
             z-index: 2;
             padding: 0.85rem 1rem;
             border-radius: 18px;
-            background: rgba(255,255,255,0.78);
+            background: rgba(255,255,255,0.8);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(13,110,253,0.08);
+            border: 1px solid rgba(29,78,216,0.08);
             color: #495057;
             font-size: 0.95rem;
         }
 
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 0.8rem;
+            border-radius: 999px;
+            background: var(--primary);
+            color: var(--primary-soft);
+            font-weight: 700;
+            font-size: 0.82rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .doc-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            border: 1px solid rgba(37,99,235,0.12);
+            border-radius: 20px;
+            padding: 1.1rem 1.1rem 1rem;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+        }
+
+        .doc-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-text {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-content-shell {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.85rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-stat {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            border: 1px solid rgba(37,99,235,0.12);
+            border-radius: 18px;
+            padding: 0.9rem 1rem;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+        }
+
+        .hero-stat strong {
+            display: block;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .hero-stat span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-title {
+            font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+            line-height: 1.1;
+        }
+
+        .hero-lead {
+            font-size: 1.02rem;
+            color: var(--muted);
+            max-width: 680px;
+        }
+
+        .theme-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.45rem 0.75rem;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #f8fbff, #eef5ff);
+            border: 1px solid rgba(29,78,216,0.16);
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(29,78,216,0.06);
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, var(--surface) 0%, #f8fbff 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1rem 1.1rem;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+        }
+
+        .metric-card .metric-number {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .section-card {
+            background: rgba(255,255,255,0.9);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 1.35rem 1.3rem;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+        }
+
+        .section-card h3,
+        .section-card h4 {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .section-card p,
+        .section-card li {
+            color: var(--muted);
+        }
+
+        .timeline-step {
+            position: relative;
+            padding-left: 1.15rem;
+            border-left: 2px solid rgba(29,78,216,0.2);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -0.42rem;
+            top: 0.2rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+
+        .timeline-step strong {
+            color: var(--text);
+        }
+
+        .detail-highlight {
+            background: linear-gradient(135deg, #f8fbff 0%, #f4f9ff 100%);
+            border: 1px solid rgba(29,78,216,0.12);
+            border-radius: 16px;
+            padding: 0.9rem 1rem;
+        }
+
+        .report-cover {
+            background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(255,255,255,0.95));
+            border: 1px solid rgba(37,99,235,0.12);
+            border-radius: 24px;
+            padding: 1.6rem 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .report-subtitle {
+            font-size: 1rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .report-meta {
+            background: rgba(255,255,255,0.82);
+            border: 1px solid rgba(29,78,216,0.1);
+            border-radius: 16px;
+            padding: 1rem 1.1rem;
+        }
+
+        .report-list {
+            padding-left: 1.1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .report-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        .info-list {
+            padding-left: 1rem;
+        }
+
+        .info-list li {
+            margin-bottom: 0.5rem;
+        }
+
         .card-feedback {
             border: none;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: 0.3s;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            background: #fff;
         }
 
         .card-feedback:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.09);
+        }
+
+        .nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-pill {
+            border: 1px solid rgba(29,78,216,0.16);
+            background: rgba(255,255,255,0.8);
+            color: var(--primary);
+            border-radius: 999px;
+            padding: 0.45rem 0.8rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-pill:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-1px);
         }
 
         .rating-badge {
-            background: #e9ecef;
+            background: var(--primary-soft);
             border-radius: 20px;
             padding: 4px 12px;
             font-weight: bold;
-            color: #0d6efd;
+            color: var(--primary);
+        }
+
+        .form-shell {
+            background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+            border: 1px solid rgba(37,99,235,0.12);
+            border-radius: 22px;
+            padding: 1.15rem;
+        }
+
+        .form-control:focus,
+        .btn-primary:focus {
+            box-shadow: 0 0 0 0.2rem rgba(37,99,235,0.18);
+            border-color: rgba(37,99,235,0.35);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+        }
+
+        @media (max-width: 768px) {
+            .hero-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .media-slot {
+            background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+            border: 1px dashed rgba(37,99,235,0.25);
+            border-radius: 20px;
+            padding: 1rem;
+            min-height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .media-slot img {
+            width: 100%;
+            height: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 14px;
+            display: block;
+        }
+
+        .week-list {
+            display: grid;
+            gap: 0.7rem;
+        }
+
+        .week-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #f8fbff;
+            border: 1px solid rgba(37,99,235,0.1);
+            border-radius: 14px;
+            padding: 0.75rem 0.9rem;
+        }
+
+        .week-no {
+            min-width: 2rem;
+            height: 2rem;
+            border-radius: 999px;
+            background: var(--primary);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -133,24 +490,248 @@
         </div>
     </section>
 
-    <div class="text-center mb-5">
-        <h2 class="fw-bold">Prototype Feedback</h2>
-        <p class="text-muted">Respon publik yang pernah mencoba prototype ini</p>
-        <!-- Statistik Rata-rata -->
+    <div class="hero-content-shell">
+        <div class="hero-pill"><i class="bi bi-bookmark-check"></i> Project Documentation</div>
+        <div class="nav-pills">
+            <a class="nav-pill" href="#overview">Overview</a>
+            <a class="nav-pill" href="#system">How It Works</a>
+            <a class="nav-pill" href="#budget">Budget</a>
+            <a class="nav-pill" href="#validation">Validation</a>
+            <a class="nav-pill" href="#feedback">Feedback</a>
+        </div>
+        <h2 class="hero-title fw-bold mb-3">Automatic Water Tap</h2>
+        <p class="report-subtitle">Smart, touchless, and water-efficient</p>
+        <p class="hero-lead mb-4">Prototype keran otomatis nirkontak ini dirancang untuk mengurangi pemborosan air, menjaga kebersihan, dan memberikan pengalaman penggunaan yang lebih modern di ruang publik maupun rumah tangga.</p>
+
+        <div class="hero-metrics">
+            <div class="hero-stat">
+                <strong>Touchless</strong>
+                <span>Kontrol tanpa sentuhan langsung</span>
+            </div>
+            <div class="hero-stat">
+                <strong>Water-Smart</strong>
+                <span>Meminimalkan pemborosan air</span>
+            </div>
+            <div class="hero-stat">
+                <strong>Modern Design</strong>
+                <span>Terlihat praktis dan futuristik</span>
+            </div>
+        </div>
+
+        <div class="report-cover mb-4">
+            <div class="report-meta">
+                <p class="mb-2"><strong>Tim Pengembang:</strong></p>
+                <ul class="report-list">
+                    <li>Zalfa Arofal — 25090620050</li>
+                    <li>Murniati — 25090620052</li>
+                    <li>Nivedita Vega Putri Suyudianto — 25090620054</li>
+                    <li>Muhammad Rifzkhy All Fhayed — 25090620055</li>
+                    <li>Bayu Aji Wibowo — 25090620058</li>
+                    <li>Siti Acnitia — 25090620059</li>
+                </ul>
+                <p class="mb-1"><strong>Program Studi:</strong> Sarjana Terapan Teknik Elektronika</p>
+                <p class="mb-1"><strong>Departemen:</strong> Teknik Elektro dan Elektronika</p>
+                <p class="mb-1"><strong>Fakultas:</strong> Fakultas Vokasi</p>
+                <p class="mb-0"><strong>Universitas:</strong> Universitas Negeri Yogyakarta</p>
+            </div>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="theme-chip"><i class="bi bi-droplet"></i> Hemat Air</span>
+            <span class="theme-chip"><i class="bi bi-cpu"></i> Sensor E18-D80NK</span>
+            <span class="theme-chip"><i class="bi bi-shield-check"></i> Higienis & Nirkontak</span>
+        </div>
+    </div>
+
+    <div id="overview" class="section-card mb-4">
+        <div class="section-heading">
+            <div>
+                <div class="section-kicker"><i class="bi bi-lightbulb"></i> Overview</div>
+                <h3 class="mb-0">Masalah & Solusi</h3>
+            </div>
+        </div>
+        <p class="doc-text">Automatic Water Tap hadir sebagai solusi untuk mengatasi pemborosan air, kurangnya higienitas pada kran manual, dan kebutuhan akan sistem sanitasi yang lebih praktis di ruang publik.</p>
+        <div class="row g-3 mt-2">
+            <div class="col-md-4">
+                <div class="doc-card">
+                    <div class="doc-title">Water Efficiency</div>
+                    <div class="doc-text">Air tidak perlu terus mengalir saat pengguna sedang menyabuni tangan atau membersihkan wajah.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doc-card">
+                    <div class="doc-title">Hygiene</div>
+                    <div class="doc-text">Pengguna tidak perlu menyentuh tuas kran secara langsung, sehingga mengurangi potensi kontaminasi silang.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="doc-card">
+                    <div class="doc-title">User Experience</div>
+                    <div class="doc-text">Interaksi menjadi lebih sederhana, cepat, dan terasa modern saat digunakan di fasilitas publik maupun rumah tangga.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="system" class="section-card mb-4">
+        <div class="section-heading">
+            <div>
+                <div class="section-kicker"><i class="bi bi-gear-wide-connected"></i> How It Works</div>
+                <h3 class="mb-0">Cara Kerja Sistem</h3>
+            </div>
+        </div>
+        <p class="doc-text">Sistem ini memanfaatkan sensor inframerah untuk mendeteksi kehadiran tangan pengguna. Saat tangan didekatkan, aliran air aktif secara otomatis; saat tangan dijauhkan, aliran berhenti.</p>
+        <div class="row g-3 mt-2">
+            <div class="col-md-6">
+                <div class="doc-card">
+                    <div class="doc-title">Core Components</div>
+                    <ul class="info-list">
+                        <li>Sensor E18-D80NK untuk mendeteksi objek</li>
+                        <li>Relay module untuk mengontrol aliran listrik</li>
+                        <li>Solenoid valve sebagai penggerak utama aliran air</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="doc-card">
+                    <div class="doc-title">Supporting Materials</div>
+                    <ul class="info-list">
+                        <li>PETG dan PLA untuk desain casing dan bagian mekanik</li>
+                        <li>Adaptor 12V dan baterai 18650 sebagai sumber daya</li>
+                        <li>Rangkaian dirancang agar sistem bekerja stabil dalam penggunaan berulang</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="budget" class="section-card mb-4">
+        <div class="section-heading">
+            <div>
+                <div class="section-kicker"><i class="bi bi-wallet2"></i> Budget</div>
+                <h3 class="mb-0">Ringkasan Anggaran</h3>
+            </div>
+        </div>
+        <p class="doc-text">Anggaran proyek disusun untuk memberi gambaran biaya perancangan dan pembuatan prototype, dengan fokus pada komponen elektronik dan material pencetakan 3D.</p>
+        <div class="row g-3 mt-2">
+            <div class="col-md-6">
+                <div class="doc-card">
+                    <div class="doc-title">Main Components</div>
+                    <ul class="info-list">
+                        <li>Relay Module: Rp10.500</li>
+                        <li>Sensor E18-D80NK: Rp21.000</li>
+                        <li>Solenoid Valve 12V DC: Rp29.900</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="doc-card">
+                    <div class="doc-title">Printed Parts & Support</div>
+                    <ul class="info-list">
+                        <li>PETG 3D Clear: Rp58.683</li>
+                        <li>PLA White: Rp5.634</li>
+                        <li>Adaptor 12V dan komponen pendukung: Rp58.900</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="detail-highlight mt-3"><strong>Total estimasi biaya:</strong> Rp184.617</div>
+    </div>
+
+    <div id="validation" class="section-card mb-4">
+        <div class="section-heading">
+            <div>
+                <div class="section-kicker"><i class="bi bi-check2-circle"></i> Validation</div>
+                <h3 class="mb-0">Pengujian & Hasil</h3>
+            </div>
+        </div>
+        <p class="doc-text">Pengujian dilakukan untuk memastikan sistem merespons dengan baik dan konsisten saat digunakan berulang kali.</p>
+        <div class="row g-3 mt-2">
+            <div class="col-md-6">
+                <div class="doc-card">
+                    <div class="doc-title">Observed Behavior</div>
+                    <ul class="info-list">
+                        <li>Air keluar secara otomatis saat tangan mendekati sensor.</li>
+                        <li>Aliran air berhenti ketika tangan dijauhkan.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="doc-card">
+                    <div class="doc-title">Outcome</div>
+                    <div class="doc-text">Prototype terbukti mampu mengurangi kontak langsung dengan kran, meminimalisir penyebaran bakteri, dan membantu menghemat penggunaan air.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-card mb-4">
+        <div class="section-heading">
+            <div>
+                <div class="section-kicker"><i class="bi bi-camera-video"></i> Documentation</div>
+                <h3 class="mb-0">Video & Foto Dokumentasi</h3>
+            </div>
+        </div>
+        <div class="row g-3 mt-2">
+            <div class="col-md-6">
+                <div class="media-slot">
+                    <div>
+                        <i class="bi bi-play-circle-fill fs-2 d-block mb-2 text-primary"></i>
+                        <strong>Video Dokumentasi</strong><br>
+                        <span>Tempatkan link video / preview singkat di sini</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="media-slot">
+                    <img src="../assets/img/documentation/awt/Sequence%2001_2%20-%20frame%20at%200m30s.jpg" alt="Foto dokumentasi Automatic Water Tap">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-card mb-4">
+        <div class="section-heading">
+            <div>
+                <div class="section-kicker"><i class="bi bi-calendar2-week"></i> Weekly Activity</div>
+                <h3 class="mb-0">Aktivitas Setiap Minggu</h3>
+            </div>
+        </div>
+        <div class="week-list">
+            <div class="week-item"><span class="week-no">1</span><span>Pembelian bahan dan komponen</span></div>
+            <div class="week-item"><span class="week-no">2</span><span>Pembuatan PCB & pembuatan case</span></div>
+            <div class="week-item"><span class="week-no">3</span><span>Trial and error</span></div>
+            <div class="week-item"><span class="week-no">4</span><span>Finalisasi</span></div>
+            <div class="week-item"><span class="week-no">5</span><span>Implementasi & feedback pengguna</span></div>
+            <div class="week-item"><span class="week-no">6</span><span>Menyusun laporan</span></div>
+        </div>
+    </div>
+
+    <div class="section-card mb-4">
+        <div class="section-heading">
+            <div>
+                <div class="section-kicker"><i class="bi bi-stars"></i> Takeaway</div>
+                <h3 class="mb-0">Inti Proyek</h3>
+            </div>
+        </div>
+        <p class="doc-text">Automatic Water Tap cocok diterapkan di tempat umum seperti kampus, stasiun, terminal, dan warung makan karena menawarkan pengalaman penggunaan yang lebih higienis, praktis, dan efisien.</p>
+    </div>
+
+    <div id="feedback" class="text-center mb-4 mt-5">
+        <h2 class="fw-bold">Feedback Pengguna</h2>
+        <p class="text-muted">Pendapat orang-orang yang pernah mencoba prototype ini</p>
         <div id="rating-stats" class="h4 text-primary fw-bold"></div>
     </div>
 
-    <!-- Bagian Form -->
-    <div id="form-container" class="card p-4 border-0 shadow-sm">
-        <h4 class="mb-4 fw-bold">Berikan Penilaian Anda</h4>
+    <div id="form-container" class="section-card mb-4">
+        <div class="form-shell">
+        <h4 class="mb-4 fw-bold">Berikan Penilaianmu</h4>
         <form id="feedback-form">
-            <!-- Username -->
             <div class="input-group mb-3">
                 <span class="input-group-text">@</span>
                 <input type="text" class="form-control" placeholder="Username" required id="username">
             </div>
 
-            <!-- Rating Group -->
             <div class="mb-4">
                 <label class="form-label fw-semibold">Pilih Rating:</label>
                 <div class="btn-group w-100" role="group">
@@ -171,21 +752,20 @@
                 </div>
             </div>
 
-            <!-- Comment -->
             <div class="form-floating mb-4">
-                <textarea class="form-control" placeholder="Isi saran" id="comment" style="height: 120px" required></textarea>
-                <label for="comment">Kritik, Saran, atau Bug Teknis</label>
+                <textarea class="form-control" placeholder="Tulis pengalaman atau saranmu" id="comment" style="height: 120px" required></textarea>
+                <label for="comment">Kritik, saran, atau pengalaman penggunaan</label>
             </div>
 
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary py-2 fw-bold" id="submit-btn">Kirim Penilaian</button>
             </div>
         </form>
+        </div>
     </div>
 
     <hr class="my-5">
-    
-    <!-- Bagian List Penilaian -->
+
     <div class="mb-2">
         <h5 class="mb-3 fw-semibold">Daftar Penilaian Publik</h5>
         <div id="feedback-list" class="d-flex flex-column gap-3">
