@@ -3,7 +3,7 @@
 body {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: white;
-  background-color: #0d6efd;
+  background-color: #17191b;
   overflow-x: clip;
   width: 100%;
   position: relative;
@@ -71,12 +71,19 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  background-color: #0d6efd;
 }
 
-#ascii-container table {
-  margin: 0 auto !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
+#ascii-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .welcome {
@@ -104,9 +111,18 @@ section {
   max-width: 95vw;
   white-space: pre;
   user-select: none;
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
-/* Lapisan 2 (Outline di bawah teks utama): Padat, Mengotak & Tegas mengikuti bentuk teks, Tebal 10px warna #0d6efd tanpa blur/vignette */
+.nama::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Lapisan 2 (Outline di bawah teks utama): Padat, Mengotak & Tegas mengikuti bentuk teks tanpa memotong latar belakang */
 .nama-outline {
   position: absolute;
   top: 0;
@@ -115,22 +131,18 @@ section {
   bottom: 0;
   z-index: 2;
   color: #0d6efd;
-  -webkit-text-stroke: 10px #0d6efd;
-  text-stroke: 10px #0d6efd;
+  -webkit-text-stroke: 6px #0d6efd;
+  text-stroke: 6px #0d6efd;
   paint-order: stroke fill;
   text-shadow: 
-    -10px -10px 0 #0d6efd,
-     10px -10px 0 #0d6efd,
-    -10px  10px 0 #0d6efd,
-     10px  10px 0 #0d6efd,
-    -10px   0px 0 #0d6efd,
-     10px   0px 0 #0d6efd,
-      0px -10px 0 #0d6efd,
-      0px  10px 0 #0d6efd,
-     -5px  -5px 0 #0d6efd,
-      5px  -5px 0 #0d6efd,
-     -5px   5px 0 #0d6efd,
-      5px   5px 0 #0d6efd;
+    -4px -4px 0 #0d6efd,
+     4px -4px 0 #0d6efd,
+    -4px  4px 0 #0d6efd,
+     4px  4px 0 #0d6efd,
+    -4px   0px 0 #0d6efd,
+     4px   0px 0 #0d6efd,
+      0px -4px 0 #0d6efd,
+      0px  4px 0 #0d6efd;
   pointer-events: none;
 }
 
@@ -143,17 +155,13 @@ section {
 
 @media (max-width: 576px) {
   .nama-outline {
-    -webkit-text-stroke: 5px #0d6efd;
-    text-stroke: 5px #0d6efd;
+    -webkit-text-stroke: 3px #0d6efd;
+    text-stroke: 3px #0d6efd;
     text-shadow: 
-      -5px -5px 0 #0d6efd,
-       5px -5px 0 #0d6efd,
-      -5px  5px 0 #0d6efd,
-       5px  5px 0 #0d6efd,
-      -5px   0px 0 #0d6efd,
-       5px   0px 0 #0d6efd,
-        0px -5px 0 #0d6efd,
-        0px  5px 0 #0d6efd;
+      -2px -2px 0 #0d6efd,
+       2px -2px 0 #0d6efd,
+      -2px  2px 0 #0d6efd,
+       2px  2px 0 #0d6efd;
   }
 }
 
@@ -471,11 +479,12 @@ section:not(.welcome-section) {
 
 /* Skills */
 .skills-section {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .skills-section .skills.liquid-glass-pod {
+  max-width: 1200px;
+  margin: 0 auto;
   background: linear-gradient(135deg, rgba(13, 110, 253, 0.2), rgba(20, 25, 45, 0.75));
   backdrop-filter: blur(30px) saturate(190%);
   -webkit-backdrop-filter: blur(30px) saturate(190%);
@@ -543,6 +552,7 @@ section:not(.welcome-section) {
   overflow: hidden;
 }
 
+
 .certification .swiper-slide.certificate-img {
   display: flex;
   justify-content: center;
@@ -571,7 +581,7 @@ section:not(.welcome-section) {
 
 /* Container side (landscape): rasio standar 1.414 / 1 */
 .cert-swiper-side .swiper-slide.certificate-img {
-  height: 220px;
+  height: 190px;
 }
 
 .cert-swiper-side .swiper-slide.certificate-img img {
@@ -590,7 +600,7 @@ section:not(.welcome-section) {
     height: 270px;
   }
   .cert-swiper-side .swiper-slide.certificate-img {
-    height: 190px;
+    height: 170px;
   }
 }
 

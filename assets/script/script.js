@@ -136,22 +136,27 @@ window.addEventListener('DOMContentLoaded', () => {
         const breakpoints = {
             0: {
                 slidesPerView: 1.2,
-                spaceBetween: 14,
+                spaceBetween: 12,
                 centeredSlides: true,
             },
             480: {
-                slidesPerView: 1.5,
-                spaceBetween: 16,
+                slidesPerView: 1.6,
+                spaceBetween: 14,
                 centeredSlides: true,
             },
+            640: {
+                slidesPerView: 2.3,
+                spaceBetween: 16,
+                centeredSlides: false,
+            },
             768: {
-                slidesPerView: 2.5,
-                spaceBetween: 18,
+                slidesPerView: 3.2,
+                spaceBetween: 16,
                 centeredSlides: false,
             },
             1024: {
-                slidesPerView: 4,
-                spaceBetween: 20,
+                slidesPerView: 5,
+                spaceBetween: 18,
                 centeredSlides: false,
             },
         };
@@ -166,11 +171,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const swiperOptions = {
             loop: shouldLoop,
-            centeredSlides: true,
+            centeredSlides: false,
+            centerInsufficientSlides: true,
+            watchOverflow: true,
             spaceBetween: 16,
+            speed: 600,
+            grabCursor: true,
             autoplay: shouldAutoplay ? {
                 delay: 2500,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: true,
             } : false,
             breakpoints,
         };
