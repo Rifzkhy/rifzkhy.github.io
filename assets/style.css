@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
-
-.pixelify-sans {
-  font-family: "Pixelify Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-weight: 400;
-}
+/* Google Font now preconnected in HTML head */
 
 body {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: white;
   background-color: #0d6efd;
-  overflow-x: hidden;
+  overflow-x: clip;
+  width: 100%;
+  position: relative;
+}
+
+html {
+  overflow-x: clip;
+  width: 100%;
 }
 
 body.is-loading {
@@ -53,40 +54,120 @@ section {
 .welcome-section {
   background-color: transparent;
   color: inherit;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   position: relative;
 }
 
 #ascii-container {
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+#ascii-container table {
+  margin: 0 auto !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.welcome {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.nama-container {
+  position: relative;
+  display: inline-block;
+}
+
 .nama {
   line-height: 1;
   margin: 0 auto;
   font-weight: bold;
-  overflow: hidden;
-  font-size: calc(0.1rem + 1vw);
+  font-size: clamp(0.35rem, 1.4vw, 1.1rem);
+  max-width: 95vw;
+  white-space: pre;
+  user-select: none;
+}
+
+/* Lapisan 2 (Outline di bawah teks utama): Padat, Mengotak & Tegas mengikuti bentuk teks, Tebal 10px warna #0d6efd tanpa blur/vignette */
+.nama-outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  color: #0d6efd;
+  -webkit-text-stroke: 10px #0d6efd;
+  text-stroke: 10px #0d6efd;
+  paint-order: stroke fill;
+  text-shadow: 
+    -10px -10px 0 #0d6efd,
+     10px -10px 0 #0d6efd,
+    -10px  10px 0 #0d6efd,
+     10px  10px 0 #0d6efd,
+    -10px   0px 0 #0d6efd,
+     10px   0px 0 #0d6efd,
+      0px -10px 0 #0d6efd,
+      0px  10px 0 #0d6efd,
+     -5px  -5px 0 #0d6efd,
+      5px  -5px 0 #0d6efd,
+     -5px   5px 0 #0d6efd,
+      5px   5px 0 #0d6efd;
+  pointer-events: none;
+}
+
+/* Lapisan utama (Teks putih bersih di atas tanpa shadow buram) */
+.nama-main {
+  position: relative;
+  z-index: 3;
+  color: #ffffff;
+}
+
+@media (max-width: 576px) {
+  .nama-outline {
+    -webkit-text-stroke: 5px #0d6efd;
+    text-stroke: 5px #0d6efd;
+    text-shadow: 
+      -5px -5px 0 #0d6efd,
+       5px -5px 0 #0d6efd,
+      -5px  5px 0 #0d6efd,
+       5px  5px 0 #0d6efd,
+      -5px   0px 0 #0d6efd,
+       5px   0px 0 #0d6efd,
+        0px -5px 0 #0d6efd,
+        0px  5px 0 #0d6efd;
+  }
 }
 
 section:not(.welcome-section) {
-  background-color: #232627;
+  background: radial-gradient(circle at 10% 20%, rgba(13, 110, 253, 0.08) 0%, transparent 40%),
+              radial-gradient(circle at 90% 70%, rgba(99, 102, 241, 0.06) 0%, transparent 40%),
+              #17191b;
   color: white;
 }
 
 .certification-section {
-  background-color: #232627;
+  background: radial-gradient(circle at 80% 20%, rgba(13, 110, 253, 0.08) 0%, transparent 50%),
+              #17191b;
   color: white;
-}
-
-sections {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -96,14 +177,51 @@ sections {
 }
 
 /* About */
+.about.container {
+  max-width: 1200px;
+}
+
+.about-text {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  line-height: 1.7;
+  color: #dee2e6;
+  font-size: 1rem;
+}
+
+@media (max-width: 576px) {
+  .about-text {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 0.95rem;
+  }
+}
+
+.about-card-wrapper {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .about .about-card {
-  background-color: #343a40;
+  background: rgba(45, 50, 56, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   width: 18rem;
+  max-width: 90vw;
   height: 24rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 1.15rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
   display: flex;
   transform-style: preserve-3d;
+  position: relative;
+  overflow: visible;
+}
+
+.about .about-card:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.35);
 }
 
 .about .about-card .about-card-show {
@@ -123,7 +241,7 @@ sections {
   /* translucent glass base */
   border: 1.5px dashed rgba(255, 255, 255, 0.75);
   /* garis putus-putus */
-  border-radius: 8px;
+  border-radius: 0.75rem;
   transform: translateX(10px) translateY(285px) translateZ(25px);
   backdrop-filter: blur(6px) saturate(120%);
   /* glass blur */
@@ -155,8 +273,10 @@ sections {
 .about .about-card .layer-0,
 .about .about-card .layer-1 {
   position: absolute;
-  width: 80%;
-  margin: 10px;
+  top: 12px;
+  left: 12px;
+  width: calc(100% - 70px);
+  margin: 0;
   border-radius: 8px;
   transform: translateZ(10px);
   transition: all 0.3s ease;
@@ -169,9 +289,6 @@ sections {
 .about .about-card:hover .layer-0,
 .about .about-card:hover .layer-1 {
   width: 50%;
-  /* margin: 10px;
-              height: auto;
-              border-radius: 8px; */
 }
 
 .about .about-card .layer-2 {
@@ -195,7 +312,7 @@ sections {
 .about .about-card .decoration {
   position: absolute;
   top: 5px;
-  left: 90px;
+  left: 80px;
   font-size: 17px;
   text-align: end;
   color: #adb5bd;
@@ -212,33 +329,79 @@ sections {
   transform: translateZ(15px);
 }
 
-.about .about-card marquee {
+.about .about-card .card-marquee {
   position: absolute;
-  bottom: 180px;
-  left: 85px;
-  width: 356px;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #0d6efd;
+  top: 12px;
+  bottom: 12px;
+  right: 12px;
+  width: 34px;
+  overflow: hidden;
   background-color: white;
-  border-radius: 6px;
-  rotate: calc(-90deg);
+  border-radius: 8px;
   transform: translateZ(10px);
   transition: all 0.3s ease;
 }
 
-.about .about-card:hover marquee {
+.about .about-card:hover .card-marquee {
   background-color: #0d6efd;
+}
+
+.about .about-card .card-marquee-track {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  transform-origin: 0 0;
+  animation: cardMarqueeScroll 14s linear infinite;
+}
+
+@keyframes cardMarqueeScroll {
+  from {
+    transform: rotate(-90deg) translateY(-50%) translateX(0);
+  }
+  to {
+    transform: rotate(-90deg) translateY(-50%) translateX(-33.333%);
+  }
+}
+
+.about .about-card .card-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-right: 2.5rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #0d6efd;
+  white-space: nowrap;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.about .about-card:hover .card-marquee-item {
   color: white;
+}
+
+.about .about-card .uny-logo {
+  width: 1.4rem;
+  height: 1.4rem;
+  object-fit: contain;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 
 .about .about-card .button-1 {
   position: absolute;
-  bottom: 30px;
-  left: 10px;
-  width: 80%;
-  font-size: 1rem;
+  bottom: 52px;
+  left: 12px;
+  width: calc(100% - 70px);
+  height: 32px;
+  line-height: 32px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 0.95rem;
   font-weight: bold;
   color: white;
   background-color: #0d6efd;
@@ -248,10 +411,15 @@ sections {
 
 .about .about-card .button-2 {
   position: absolute;
-  bottom: 0px;
-  left: 10px;
-  width: 80%;
-  font-size: 1rem;
+  bottom: 12px;
+  left: 12px;
+  width: calc(100% - 70px);
+  height: 32px;
+  line-height: 32px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 0.95rem;
   font-weight: bold;
   color: white;
   background-color: #0d6efd;
@@ -259,39 +427,176 @@ sections {
   transform: translateZ(10px);
 }
 
-/* Skills */
-.skills .skill-card {
-  background-color: #0d6efd;
-  width: 80%;
-  border-radius: 6px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+/* Projects & Cards */
+.projects-section .projects.container {
+  max-width: 1200px;
+}
+
+.projects-section .card,
+.projects-section .project-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
   display: flex;
   flex-direction: column;
 }
 
+.projects-section .card:hover,
+.projects-section .project-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.35);
+}
+
+.projects-section .card-img-top {
+  border-top-left-radius: 1.25rem;
+  border-top-right-radius: 1.25rem;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  width: 100%;
+}
+
+.projects-section .card-body {
+  padding: 1.25rem;
+  background: transparent;
+  flex-grow: 1;
+}
+
+/* Skills */
+.skills-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills-section .skills.liquid-glass-pod {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.2), rgba(20, 25, 45, 0.75));
+  backdrop-filter: blur(30px) saturate(190%);
+  -webkit-backdrop-filter: blur(30px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+  border-radius: 1.5rem;
+}
+
+.skills-section .card {
+  border-radius: 1.15rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.skills-section .card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.skills-section .card-img-top {
+  border-top-left-radius: 1.15rem;
+  border-top-right-radius: 1.15rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  width: 100%;
+}
+
+.skills-section .card-body {
+  padding: 1rem 0.75rem;
+  background: transparent;
+}
+
 .skills-section .card-body img {
-  width: 24px;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
   filter: grayscale(1);
+  transition: all 0.3s ease;
+}
+
+.skills-section .card:hover .card-body img {
+  filter: grayscale(0);
+  transform: scale(1.12);
 }
 
 /* Certification */
-.certification {
+.certification.container {
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .certification .swiper {
   width: 100%;
   background-color: transparent;
+  padding: 1.5rem 0;
+  overflow: hidden;
 }
 
-.certification .swiper img {
-  filter: grayscale(1);
-  transition: filter 0.5s ease;
+.certification .swiper-slide.certificate-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 
-.certification .swiper img:hover {
-  filter: grayscale(0);
+/* Container utama (portrait A4): rasio standar 1 / 1.414 */
+.cert-swiper-main .swiper-slide.certificate-img {
+  height: 300px;
+}
+
+.cert-swiper-main .swiper-slide.certificate-img img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  aspect-ratio: 1 / 1.414;
+  border-radius: 0.75rem;
+  object-fit: contain;
+  filter: grayscale(0.85) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Container side (landscape): rasio standar 1.414 / 1 */
+.cert-swiper-side .swiper-slide.certificate-img {
+  height: 220px;
+}
+
+.cert-swiper-side .swiper-slide.certificate-img img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  aspect-ratio: 1.414 / 1;
+  border-radius: 0.75rem;
+  object-fit: contain;
+  filter: grayscale(0.85) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 576px) {
+  .cert-swiper-main .swiper-slide.certificate-img {
+    height: 270px;
+  }
+  .cert-swiper-side .swiper-slide.certificate-img {
+    height: 190px;
+  }
+}
+
+.certification .swiper-slide.certificate-img:hover img {
+  filter: grayscale(0) drop-shadow(0 18px 30px rgba(13, 110, 253, 0.35));
+  transform: translateY(-8px) scale(1.04);
 }
 
 .cert-swiper-collapsible {
@@ -300,7 +605,10 @@ sections {
   opacity: 0;
   transform: translateY(-16px);
   pointer-events: none;
-  transition: max-height 0.5s ease, opacity 0.4s ease, transform 0.5s ease;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, transform 0.5s ease;
 }
 
 .cert-swiper-collapsible.is-visible {
@@ -310,121 +618,153 @@ sections {
   pointer-events: auto;
 }
 
-.swiper-slide.certificate-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-}
-
-.swiper-slide.certificate-img img {
-  max-height: 90%;
-  max-width: 90%;
-  width: auto;
-  height: 100%;
-  object-fit: contain;
-}
-
 #cert-swiper-toggle {
-  position: absolute;
-  transform: translate(-50%, -50%) translateY(10px);
-  /* center, lalu naik 10px */
-}
-
-.footer-container {
-  background: #0d6efd;
-  color: white;
-}
-
-/* Documentation */
-.documentation {
-  max-width: 1100px;
-}
-
-.documentation-intro {
-  max-width: 760px;
-  color: #ced4da;
-}
-
-.documentation-card {
-  background-color: #343A40;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.documentation-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-}
-
-.documentation-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  filter: grayscale(1);
-  transition: filter 0.4s ease;
-}
-
-.documentation-card:hover .documentation-image {
-  filter: grayscale(0);
-}
-
-.documentation-caption {
-  padding: 0.85rem 1rem;
-  color: #dee2e6;
-  text-align: left;
-  font-size: 0.95rem;
-}
-
-/* Work */
-.company-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.company-card {
-  background-color: #343A40;
-  border-radius: 12px;
-  padding: 1.5rem 1rem;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.company-card:hover {
-  transform: translateY(-6px);
-  /* box-shadow: 0 16px 40px rgba(13, 110, 253, 0.25); */
-}
-
-.company-logo {
-  filter: grayscale(1);
-  width: 4rem;
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: 1px;
+  position: static;
+  transform: none;
   transition: all 0.3s ease;
 }
 
-.company-card:hover .company-logo {
-  filter: grayscale(0);
+#cert-swiper-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.35);
 }
 
-.company-name {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0;
-}
-
-.company-location {
-  font-size: 0.9rem;
+.footer-container {
+  background-color: #1a1d1f;
   color: #adb5bd;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  color: #ced4da;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-social-link:hover {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.35);
+}
+
+/* Work / Trusted By Marquee */
+.work-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1.5rem 0;
+  /* Gradient fade di ujung kiri dan kanan agar terlihat mewah dan smooth */
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: logoMarqueeScroll 45s linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.logo-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding-right: 4rem;
+  flex-shrink: 0;
+}
+
+@keyframes logoMarqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.company-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.company-logo-item:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.company-logo-item .company-logo {
+  max-height: 46px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.55);
+  transition: all 0.35s ease;
+}
+
+.company-logo-item .company-logo.rounded-circle {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+}
+
+.company-logo-item:hover .company-logo {
+  filter: grayscale(0) opacity(1) drop-shadow(0 4px 15px rgba(13, 110, 253, 0.4));
+}
+
+.company-logo-item .company-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6c757d;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  transition: color 0.35s ease;
+}
+
+.company-logo-item:hover .company-name {
+  color: #dee2e6;
+}
+
+@media (max-width: 576px) {
+  .logo-marquee-group {
+    gap: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .logo-marquee-track {
+    animation-duration: 25s;
+  }
+  .company-logo-item .company-logo {
+    max-height: 38px;
+    max-width: 105px;
+  }
+  .company-logo-item .company-logo.rounded-circle {
+    width: 38px;
+    height: 38px;
+  }
+  .company-logo-item .company-name {
+    font-size: 0.8rem;
+  }
 }

@@ -1,4 +1,15 @@
 window.addEventListener('DOMContentLoaded', () => {
+    // Dynamic year initialization (currentYear & expYear = currentYear + 3)
+    const currentYear = new Date().getFullYear();
+    const expYearEl = document.getElementById('expYear');
+    if (expYearEl) {
+        expYearEl.textContent = currentYear + 3;
+    }
+    const currentYearEl = document.getElementById('currentYear');
+    if (currentYearEl) {
+        currentYearEl.textContent = currentYear;
+    }
+
     const loadingScreen = document.getElementById('loading-screen');
     let loadingScreenDismissed = false;
 
@@ -23,14 +34,16 @@ window.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const pendingImages = Array.from(document.images).filter((image) => !image.complete);
+        // Only monitor critical above-the-fold / welcome / about images
+        const criticalImages = Array.from(document.querySelectorAll('.welcome-section img, .about-card img, #loading-screen img'))
+            .filter((image) => !image.complete);
 
-        if (!pendingImages.length) {
+        if (!criticalImages.length) {
             requestAnimationFrame(hideLoadingScreen);
             return;
         }
 
-        let remaining = pendingImages.length;
+        let remaining = criticalImages.length;
 
         const handleImageSettled = () => {
             remaining -= 1;
@@ -39,15 +52,20 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        pendingImages.forEach((image) => {
+        criticalImages.forEach((image) => {
             image.addEventListener('load', handleImageSettled, { once: true });
             image.addEventListener('error', handleImageSettled, { once: true });
         });
+
+        // Fallback safeguard: don't let loading screen block user for more than 1.5 seconds
+        setTimeout(hideLoadingScreen, 1500);
     };
 
     if (loadingScreen) {
         document.body.classList.add('is-loading');
         window.addEventListener('load', hideLoadingScreen, { once: true });
+        // Fallback max wait
+        setTimeout(hideLoadingScreen, 2000);
     }
 
     const containers = document.querySelectorAll('.cert-swiper[data-cert-path]');
@@ -81,6 +99,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 slide.className = 'swiper-slide certificate-img';
 
                 const img = document.createElement('img');
+                img.loading = 'lazy';
+                img.decoding = 'async';
                 const candidates = fileName.includes('.')
                     ? [`${path}/${fileName}`]
                     : resolvedExtensions.map((extName) => `${path}/${fileName}.${extName}`);
@@ -115,13 +135,24 @@ window.addEventListener('DOMContentLoaded', () => {
         const slidesCount = wrapper ? wrapper.children.length : 0;
         const breakpoints = {
             0: {
-                slidesPerView: 1,
+                slidesPerView: 1.2,
+                spaceBetween: 14,
+                centeredSlides: true,
+            },
+            480: {
+                slidesPerView: 1.5,
+                spaceBetween: 16,
+                centeredSlides: true,
             },
             768: {
-                slidesPerView: 3,
+                slidesPerView: 2.5,
+                spaceBetween: 18,
+                centeredSlides: false,
             },
             1024: {
-                slidesPerView: 5,
+                slidesPerView: 4,
+                spaceBetween: 20,
+                centeredSlides: false,
             },
         };
 
@@ -135,9 +166,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const swiperOptions = {
             loop: shouldLoop,
+            centeredSlides: true,
             spaceBetween: 16,
             autoplay: shouldAutoplay ? {
-                delay: 2000,
+                delay: 2500,
+                disableOnInteraction: false,
             } : false,
             breakpoints,
         };

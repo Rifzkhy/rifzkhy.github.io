@@ -7,6 +7,13 @@
   <meta name="description" content="Portofolio Muhammad Rifzkhy All Fhayed: project, sertifikasi, skill, dan foto dokumentasi kegiatan engineering.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   
+  <!-- Preconnect and DNS Prefetch for CDNs & Fonts -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
@@ -23,8 +30,9 @@
   <!-- Welcome Section -->
   <section class="welcome-section text-center" id="ascii-container">
     <div class="welcome position-absolute">
-      <pre class="nama">
- ██▀███   ██▓  █████▒▒███████▒ ██ ▄█▀ ██░ ██▓██   ██▓
+      <div class="nama-container">
+        <!-- Lapisan 2: Outline 10px warna #0d6efd di bawah teks utama -->
+        <pre class="nama nama-outline" aria-hidden="true"> ██▀███   ██▓  █████▒▒███████▒ ██ ▄█▀ ██░ ██▓██   ██▓
 ▓██ ▒ ██▒▓██▒▓██   ▒ ▒ ▒ ▒ ▄▀░ ██▄█▒ ▓██░ ██▒▒██  ██▒
 ▓██ ░▄█ ▒▒██▒▒████ ░ ░ ▒ ▄▀▒░ ▓███▄░ ▒██▀▀██░ ▒██ ██░
 ▒██▀▀█▄  ░██░░▓█▒  ░   ▄▀▒   ░▓██ █▄ ░▓█ ░██  ░ ▐██▓░
@@ -34,30 +42,41 @@
   ░░   ░  ▒ ░ ░ ░    ░ ░ ░ ░ ░░ ░░ ░  ░  ░░ ░▒ ▒ ░░  
    ░      ░            ░ ░    ░  ░    ░  ░  ░░ ░     
                      ░                       ░ ░     
-                                                                                                                                           
+
 [ Explore My Portfolio ]
-          </pre>
+        </pre>
+        <!-- Lapisan Utama: Teks putih di atas -->
+        <pre class="nama nama-main"> ██▀███   ██▓  █████▒▒███████▒ ██ ▄█▀ ██░ ██▓██   ██▓
+▓██ ▒ ██▒▓██▒▓██   ▒ ▒ ▒ ▒ ▄▀░ ██▄█▒ ▓██░ ██▒▒██  ██▒
+▓██ ░▄█ ▒▒██▒▒████ ░ ░ ▒ ▄▀▒░ ▓███▄░ ▒██▀▀██░ ▒██ ██░
+▒██▀▀█▄  ░██░░▓█▒  ░   ▄▀▒   ░▓██ █▄ ░▓█ ░██  ░ ▐██▓░
+░██▓ ▒██▒░██░░▒█░    ▒███████▒▒██▒ █▄░▓█▒░██▓ ░ ██▒▓░
+░ ▒▓ ░▒▓░░▓   ▒ ░    ░▒▒ ▓░▒░▒▒ ▒▒ ▓▒ ▒ ░░▒░▒  ██▒▒▒ 
+  ░▒ ░ ▒░ ▒ ░ ░      ░░▒ ▒ ░ ▒░ ░▒ ▒░ ▒ ░▒░ ░▓██ ░▒░ 
+  ░░   ░  ▒ ░ ░ ░    ░ ░ ░ ░ ░░ ░░ ░  ░  ░░ ░▒ ▒ ░░  
+   ░      ░            ░ ░    ░  ░    ░  ░  ░░ ░     
+                     ░                       ░ ░     
+
+[ Explore My Portfolio ]
+        </pre>
       </div>
-      </section>
+    </div>
+  </section>
 
   <!-- About Section -->
-  <section class="about-section rounded-top-5 py-5" id="about-section">
-    <div class="about">
-      <div class="row gx-0">
-        <div class="col-full col-md-8 px-md-5">
-          <h2 class="text-center text-primary">About Me</h2>
-          <p class="justified-text m-3">Hello World! My name is Muhammad Rifzkhy All Fhayed, but you can call me RIF. I am an engineer who is very curious about
-          how the world and technology work. This curiosity drives me to not only understand one field, but also how various
-          disciplines are interconnected.</p>
-          <p class="justified-text m-3">As an Electronics Engineering student, my foundation lies in Hardware Development, from schematic design to PCB design.
-          However, I believe that hardware and software are inseparable. That is why I also studied Software Development to ‘bring
-          to life’ every circuit I design.</p>
-          <p class="justified-text m-3">To refine the process, I utilize 3D Design & Visualization to design casings and visualize prototypes before printing. I
-          also specialize in Network & Infrastructure to ensure every device I create can communicate smoothly and securely.</p>
-          <p class="justified-text m-3">- Member of Kukang Developer 🌟</p>
+  <section class="about-section rounded-top-4 py-5" id="about-section">
+    <div class="about container">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-lg-7 px-3 px-md-4">
+          <h2 class="text-center text-lg-start text-primary fw-bold mb-4">About Me</h2>
+          <p class="about-text mb-3">Hello World! My name is Muhammad Rifzkhy All Fhayed, but you can call me RIF. I am an engineer with a deep curiosity about how the world and technology work. This curiosity drives me not only to master a single discipline, but also to understand how various fields interconnect.</p>
+          <p class="about-text mb-3">As an Electronics Engineering student, my foundation lies in Hardware Development, from schematic design to PCB layout. However, I believe that hardware and software are inseparable. That is why I also study Software Development to bring every circuit I create to life.</p>
+          <p class="about-text mb-3">To refine the prototyping process, I leverage 3D Design &amp; Visualization to model custom enclosures and inspect physical prototypes before fabrication. I also specialize in Network &amp; Infrastructure to ensure every device I build can communicate smoothly and securely.</p>
+          <p class="about-text text-primary fw-medium mb-0">Member of Kukang Developer 🌟</p>
         </div>
-            <div class="col-full col-md-4 d-flex justify-content-center align-items-center">
-              <div class="about-card" data-tilt>
+        <div class="col-12 col-lg-5 d-flex justify-content-center align-items-center mt-4 mt-lg-0">
+          <div class="about-card-wrapper">
+            <div class="about-card mx-auto" data-tilt>
                 
                 <div class="signature">
                   <svg width="217" height="110" viewBox="0 0 435 220" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +118,7 @@
 
 EXP 
 DATE
-XXXX
+<span id="expYear"></span>
                 </pre>
 
                   <pre class="information about-card-show">
@@ -108,7 +127,22 @@ NATION : INDONESIA [ID]
 EMAIL  : rifzkhys@gmail.com
 NUM    : +62 821-3732-0498
                   </pre>
-                <marquee>ELECTRONIC ENGINEER - UNIVERSITAS NEGERI YOGYAKARTA</marquee>
+                <div class="card-marquee">
+                  <div class="card-marquee-track">
+                    <div class="card-marquee-item">
+                      <img src="./assets/img/logo/uny.png" alt="UNY Logo" class="uny-logo">
+                      <span>ELECTRONIC ENGINEER - UNIVERSITAS NEGERI YOGYAKARTA</span>
+                    </div>
+                    <div class="card-marquee-item" aria-hidden="true">
+                      <img src="./assets/img/logo/uny.png" alt="" class="uny-logo">
+                      <span>ELECTRONIC ENGINEER - UNIVERSITAS NEGERI YOGYAKARTA</span>
+                    </div>
+                    <div class="card-marquee-item" aria-hidden="true">
+                      <img src="./assets/img/logo/uny.png" alt="" class="uny-logo">
+                      <span>ELECTRONIC ENGINEER - UNIVERSITAS NEGERI YOGYAKARTA</span>
+                    </div>
+                  </div>
+                </div>
                 <div class="text-center">
                   <p class="button-1">More Information .ᐟ</p>
                   <p class="button-2">Align Here ᝰ.ᐟ</p>
@@ -116,124 +150,127 @@ NUM    : +62 821-3732-0498
               </div>
             </div>
             </div>
-            </div>
+          </div>
+        </div>
+  </section>
   </section>
 
   <!-- Projects Section -->
-  <section class="projects-section py-5" id="projects-section">
-    <div class="projects">
-      <div class="text-center">
-        <h2 class="text-primary">My Projects</h2>
-        <p>Here are some of the projects I've worked on.</p>
+  <section class="projects-section py-5 px-3 px-md-4" id="projects-section">
+    <div class="projects container">
+      <div class="text-center mb-4">
+        <h2 class="text-primary fw-bold">My Projects</h2>
+        <p class="text-secondary">Here are some of the projects I've worked on.</p>
       </div>
-      <div class="row">
-        <div class="col-full col-md-4 py-3">
-          
-          <div class="card mx-auto" style="width: 80%; height: 100%; background-color: #343a40;">
-            <img src="./assets/img/project/project-1.jpg" class="card-img-top">
-            <div class="card-body text-white">
-              <div class="d-flex justify-content-between">
-                <h5 class="card-title">RIFTH</h5>
-                <p class="text-secondary">2025</p>
+      <div class="row g-4 justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4 d-flex">
+          <div class="card project-card w-100">
+            <img src="./assets/img/project/project-1.jpg" class="card-img-top" loading="lazy" decoding="async" alt="RIFTH Project">
+            <div class="card-body text-white d-flex flex-column justify-content-between">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h5 class="card-title fw-bold mb-0">RIFTH</h5>
+                  <span class="badge text-bg-primary small">2025</span>
+                </div>
+                <p class="card-text text-secondary">A centralized dashboard platform for monitoring, managing, and securing Mikrotik devices.</p>
               </div>
-              <p class="card-text">An centralized dashboard platform for monitoring, managing, and securing Mikrotik devices.</p>
             </div>
           </div>
-          
         </div>
-        <div class="col-full col-md-4 py-3">
-          
-          <div class="card mx-auto" style="width: 80%; height: 100%; background-color: #343a40;">
-            <img src="./assets/img/project/project-2.jpg" class="card-img-top">
-            <div class="card-body text-white">
-              <div class="d-flex justify-content-between">
-                <h5 class="card-title">Matsuri AI</h5>
-                <p class="text-secondary">2021</p>
+        <div class="col-12 col-md-6 col-lg-4 d-flex">
+          <div class="card project-card w-100">
+            <img src="./assets/img/project/project-2.jpg" class="card-img-top" loading="lazy" decoding="async" alt="Matsuri AI Project">
+            <div class="card-body text-white d-flex flex-column justify-content-between">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h5 class="card-title fw-bold mb-0">Matsuri AI</h5>
+                  <span class="badge text-bg-primary small">2021</span>
+                </div>
+                <p class="card-text text-secondary">AI WhatsApp Chatbot project powered by Bard AI. Unlimited tokens for free.</p>
               </div>
-              <p class="card-text">AI WhatsApp Chatbot project powered by Bard AI. Unlimited tokens for free</p>
             </div>
           </div>
-          
         </div>
-        <div class="col-full col-md-4 py-3">
-          
-          <div class="card mx-auto" style="width: 80%; height: 100%; background-color: #343a40;">
-            <img src="./assets/img/project/project-3.jpg" class="card-img-top">
-            <div class="card-body text-white">
-              <div class="d-flex justify-content-between">
-                <h5 class="card-title">Azur Lane Scraper</h5>
-                <p class="text-secondary">2023</p>
+        <div class="col-12 col-md-6 col-lg-4 d-flex">
+          <div class="card project-card w-100">
+            <img src="./assets/img/project/project-3.jpg" class="card-img-top" loading="lazy" decoding="async" alt="Azur Lane Scraper Project">
+            <div class="card-body text-white d-flex flex-column justify-content-between">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h5 class="card-title fw-bold mb-0">Azur Lane Scraper</h5>
+                  <span class="badge text-bg-primary small">2023</span>
+                </div>
+                <p class="card-text text-secondary">This Node.js module allows you to scrape Azur Lane ship girl information from Azurlane Wiki.</p>
               </div>
-              <p class="card-text">This Node.js module allows you to scrape Azur Lane ship girl information from Azurlane Wiki.</p>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
-<div class="text-center p-3">
-  <a href="https://github.com/Rifzkhy" class="btn btn-primary px-5 py-2">
-    <div class="d-flex align-items-center w-auto">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-        class="bi bi-github me-2 github-icon-fix" viewBox="0 0 16 16">
-        <path
-          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-      </svg>
-      Github
+    <div class="text-center pt-4">
+      <a href="https://github.com/Rifzkhy" class="btn btn-primary px-5 py-2 rounded-3" target="_blank" rel="noopener noreferrer">
+        <div class="d-flex align-items-center w-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-github me-2 github-icon-fix" viewBox="0 0 16 16">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+          </svg>
+          Github
+        </div>
+      </a>
     </div>
-  </a>
-</div>
   </section>
 
-  <section class="skills-section p-md-5" id="skills-section">
-    <div class="skills bg-primary rounded-4 px-2 py-4">
-      <div class="text-center">
-        <h2>My Skills</h2>
-        <p>Here are some of the skills I've acquired.</p>
+  <!-- Skills Section -->
+  <section class="skills-section py-5 px-3 px-md-5" id="skills-section">
+    <div class="skills liquid-glass-pod px-3 py-4 p-md-5">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">My Skills</h2>
+        <p class="mb-0">Here are some of the skills I've acquired.</p>
       </div>
 
-      <div class="row gx-4 gy-4">
-        <div class="col-full col-12 col-md-3 d-flex flex-column align-items-center">
-          <h5 class="mb-3">Software Development</h5>
-          <div class="card mx-auto" style="width: 90%;">
-            <img src="./assets/vid/vid_1.png" class="card-img-top">
-            <div class="card-body">
-              <img src="/assets/img/logo/docker.webp">
-              <img src="/assets/img/logo/postman.webp">
-              <img src="/assets/img/logo/git.webp">
+      <div class="row g-4 justify-content-center">
+        <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center">
+          <h5 class="mb-3 text-center fs-6 fw-bold">Software Development</h5>
+          <div class="card w-100 h-100">
+            <img src="./assets/vid/vid_1.png" class="card-img-top" loading="lazy" decoding="async" alt="Software Development thumbnail">
+            <div class="card-body d-flex justify-content-center align-items-center gap-3">
+              <img src="/assets/img/logo/docker.webp" loading="lazy" decoding="async" alt="Docker">
+              <img src="/assets/img/logo/postman.webp" loading="lazy" decoding="async" alt="Postman">
+              <img src="/assets/img/logo/git.webp" loading="lazy" decoding="async" alt="Git">
             </div>
           </div>
         </div>
-        <div class="col-full col-12 col-md-3 d-flex flex-column align-items-center">
-          <h5 class="mb-3">Network & Infrastructure</h5>
-          <div class="card mx-auto" style="width: 90%;">
-            <img src="./assets/vid/vid_2.png" class="card-img-top">
-            <div class="card-body">
-              <img src="/assets/img/logo/winbox.webp">
-              <img src="/assets/img/logo/mikrotik.webp">
-              <img src="/assets/img/logo/mikhmon.webp">
+        <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center">
+          <h5 class="mb-3 text-center fs-6 fw-bold">Network & Infrastructure</h5>
+          <div class="card w-100 h-100">
+            <img src="./assets/vid/vid_2.png" class="card-img-top" loading="lazy" decoding="async" alt="Network thumbnail">
+            <div class="card-body d-flex justify-content-center align-items-center gap-3">
+              <img src="/assets/img/logo/winbox.webp" loading="lazy" decoding="async" alt="Winbox">
+              <img src="/assets/img/logo/mikrotik.webp" loading="lazy" decoding="async" alt="Mikrotik">
+              <img src="/assets/img/logo/mikhmon.webp" loading="lazy" decoding="async" alt="Mikhmon">
             </div>
           </div>
         </div>
-        <div class="col-full col-12 col-md-3 d-flex flex-column align-items-center">
-          <h5 class="mb-3">3D Design & Visualization</h5>
-          <div class="card mx-auto" style="width: 90%;">
-            <img src="./assets/vid/vid_3.png" class="card-img-top">
-            <div class="card-body">
-              <img src="/assets/img/logo/blender.webp">
-              <img src="/assets/img/logo/fusion360.webp">
-              <img src="/assets/img/logo/cinema4d.webp">
+        <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center">
+          <h5 class="mb-3 text-center fs-6 fw-bold">3D Design & Visualization</h5>
+          <div class="card w-100 h-100">
+            <img src="./assets/vid/vid_3.png" class="card-img-top" loading="lazy" decoding="async" alt="3D Design thumbnail">
+            <div class="card-body d-flex justify-content-center align-items-center gap-3">
+              <img src="/assets/img/logo/blender.webp" loading="lazy" decoding="async" alt="Blender">
+              <img src="/assets/img/logo/fusion360.webp" loading="lazy" decoding="async" alt="Fusion360">
+              <img src="/assets/img/logo/cinema4d.webp" loading="lazy" decoding="async" alt="Cinema4D">
             </div>
           </div>
         </div>
-        <div class="col-full col-12 col-md-3 d-flex flex-column align-items-center">
-          <h5 class="mb-3">Hardware Development</h5>
-          <div class="card mx-auto" style="width: 90%;">
-            <img src="./assets/vid/vid_4.png" class="card-img-top">
-            <div class="card-body">
-              <img src="/assets/img/logo/arduinoide.webp">
-              <img src="/assets/img/logo/tinkercad.webp">
-              <img src="/assets/img/logo/kicad.webp">
+        <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center">
+          <h5 class="mb-3 text-center fs-6 fw-bold">Hardware Development</h5>
+          <div class="card w-100 h-100">
+            <img src="./assets/vid/vid_4.png" class="card-img-top" loading="lazy" decoding="async" alt="Hardware Development thumbnail">
+            <div class="card-body d-flex justify-content-center align-items-center gap-3">
+              <img src="/assets/img/logo/arduinoide.webp" loading="lazy" decoding="async" alt="Arduino IDE">
+              <img src="/assets/img/logo/tinkercad.webp" loading="lazy" decoding="async" alt="Tinkercad">
+              <img src="/assets/img/logo/kicad.webp" loading="lazy" decoding="async" alt="KiCad">
             </div>
           </div>
         </div>
@@ -242,160 +279,185 @@ NUM    : +62 821-3732-0498
   </section>
 
   <!-- Certification Section -->
-  <sections class="certification-section py-5" id="certification-section">
-    <div class="certification">
-      <h2 class="text-primary">Certifications</h2>
-      <p>Here are some of the certifications I've earned.</p>
-      <div class="swiper cert-swiper cert-swiper-main" data-cert-path="/assets/img/certificate/main" data-total="5" data-files="sertifikat_1.png, sertifikat_2.jpg, sertifikat_3.jpg, sertifikat_4.jpg, sertifikat_5.png">
+  <section class="certification-section py-5 px-3 px-md-4" id="certification-section">
+    <div class="certification container">
+      <div class="text-center mb-4">
+        <h2 class="text-primary fw-bold">Certifications</h2>
+        <p class="text-secondary">Here are some of the certifications I've earned.</p>
+      </div>
+
+      <div class="swiper cert-swiper cert-swiper-main mb-4" data-cert-path="/assets/img/certificate/main" data-total="3" data-files="sertifikat_2.jpg, sertifikat_3.jpg, sertifikat_4.jpg">
         <div class="swiper-wrapper"></div>
       </div>
 
-<div id="cert-swiper-side"
-  class="swiper cert-swiper cert-swiper-side cert-swiper-collapsible bg-primary justify-content-center align-items-center"
-  data-cert-path="/assets/img/certificate/side" data-total="10" data-files="sertifikat_1.jpg, sertifikat_2.jpg, sertifikat_3.jpg, sertifikat_4.jpg, sertifikat_5.jpg, sertifikat_6.jpg, sertifikat_7.jpg, sertifikat_8.jpg, sertifikat_9.jpg, sertifikat_10.jpg">
-  <div class="swiper-wrapper"></div>
-</div>
-<div>
-  <button id="cert-swiper-toggle" class="bg-primary border-0 px-5 py-2 rounded-3 text-white" aria-expanded="false"
-    data-target="#cert-swiper-side">Show More</button>
-</div>
-</div>
-  </sections>
-
-  <!-- Documentation Section
-  <section class="documentation-section py-5" id="documentation-section">
-    <div class="container documentation">
-      <div class="text-center mb-4">
-        <h2 class="text-primary">Documentation</h2>
-        <p class="documentation-intro mx-auto">Dokumentasi kegiatan lapangan, pengembangan perangkat, dan kolaborasi selama proses belajar serta profesional.</p>
+      <div id="cert-swiper-side"
+        class="swiper cert-swiper cert-swiper-side cert-swiper-collapsible mb-4"
+        data-cert-path="/assets/img/certificate/side" data-total="10" data-files="sertifikat_1.jpg, sertifikat_2.jpg, sertifikat_3.jpg, sertifikat_4.jpg, sertifikat_5.jpg, sertifikat_6.jpg, sertifikat_7.jpg, sertifikat_8.jpg, sertifikat_9.jpg, sertifikat_10.jpg">
+        <div class="swiper-wrapper"></div>
       </div>
 
-      <div class="row g-4 documentation-grid">
-        <div class="col-12 col-sm-6 col-lg-4">
-          <article class="documentation-card h-100">
-            <figure class="mb-0">
-              <img src="/assets/img/documentation/doc_1.jpg" class="documentation-image" loading="lazy" decoding="async" alt="Dokumentasi kegiatan lomba dan seminar nasional Vocational Robotic Contest Technology Experience (VORTEX).">
-              <figcaption class="documentation-caption">Vocational Robotic Contest Technology Experience (VORTEX)</figcaption>
-            </figure>
-          </article>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <article class="documentation-card h-100">
-            <figure class="mb-0">
-              <img src="/assets/img/documentation/doc_2.jpg" class="documentation-image" loading="lazy" decoding="async" alt="Dokumentasi kegiatan Workshop Canva Design Spark.">
-              <figcaption class="documentation-caption">Workshop Canva Design Spark</figcaption>
-            </figure>
-          </article>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <article class="documentation-card h-100">
-            <figure class="mb-0">
-              <img src="/assets/img/documentation/doc_3.jpg" class="documentation-image" loading="lazy" decoding="async" alt="Dokumentasi proses perakitan hardware dan validasi koneksi.">
-              <figcaption class="documentation-caption">Perakitan hardware dan validasi koneksi.</figcaption>
-            </figure>
-          </article>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <article class="documentation-card h-100">
-            <figure class="mb-0">
-              <img src="/assets/img/documentation/doc_4.jpg" class="documentation-image" loading="lazy" decoding="async" alt="Dokumentasi kegiatan diskusi teknis bersama tim proyek.">
-              <figcaption class="documentation-caption">Diskusi teknis bersama tim proyek.</figcaption>
-            </figure>
-          </article>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <article class="documentation-card h-100">
-            <figure class="mb-0">
-              <img src="/assets/img/documentation/doc_5.jpg" class="documentation-image" loading="lazy" decoding="async" alt="Dokumentasi pengujian prototipe perangkat elektronik.">
-              <figcaption class="documentation-caption">Pengujian prototipe perangkat elektronik.</figcaption>
-            </figure>
-          </article>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <article class="documentation-card h-100">
-            <figure class="mb-0">
-              <img src="/assets/img/documentation/doc_6.jpg" class="documentation-image" loading="lazy" decoding="async" alt="Dokumentasi presentasi hasil pengembangan perangkat kepada klien.">
-              <figcaption class="documentation-caption">Presentasi hasil pengembangan perangkat kepada klien.</figcaption>
-            </figure>
-          </article>
-        </div>
+      <div class="text-center mt-3">
+        <button id="cert-swiper-toggle" class="btn btn-primary px-5 py-2 rounded-3 text-white fw-medium shadow-sm" aria-expanded="false"
+          data-target="#cert-swiper-side">Show More</button>
       </div>
     </div>
-  </section> -->
+  </section>
 
-  <!-- Work Section -->
-  <section class="work-section py-5" id="work-section">
+  <!-- Work / Trusted By Section -->
+  <section class="work-section py-5 overflow-hidden" id="work-section">
     <div class="work text-center">
-      <h2 class="text-primary text-bold">Trusted By</h2>
-      <p>Here are some of the companies and organizations I've worked with:</p>
-      <div class="row g-4 justify-content-center company-grid mt-4">
-        <div class="col-12 col-sm-6 col-lg-4 col-xxl-2">
-          <div class="company-card h-100">
-            <img class="company-logo w-100 h-90" src="/assets/img/company/company-logo-1.png">
-            <h5 class="company-name">Burger Vanny</h5>
-            <p class="company-location mb-0">Kotawaringin Timur</p>
+      <div class="container mb-4">
+        <h2 class="text-primary fw-bold">Trusted By</h2>
+        <p class="text-secondary mb-0">Here are some of the companies and organizations I've worked with:</p>
+      </div>
+
+      <div class="logo-marquee-wrapper mt-4">
+        <div class="logo-marquee-track">
+          <!-- Group 1 -->
+          <div class="logo-marquee-group">
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-1.png" alt="Burger Vanny Logo">
+              <span class="company-name">Burger Vanny</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-2.png" alt="PT. Hayat Televisi Entertainment Logo">
+              <span class="company-name">PT. Hayat Televisi</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-3.png" alt="CV. Mecca Network Logo">
+              <span class="company-name">CV. Mecca Network</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo rounded-circle" src="./assets/img/company/company-logo-4.jpg" alt="Grayscan Fotocopy Logo">
+              <span class="company-name">Grayscan Fotocopy</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo rounded-circle" src="./assets/img/company/company-logo-5.jpg" alt="Youni Kost Logo">
+              <span class="company-name">Youni Kost</span>
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4 col-xxl-2">
-          <div class="company-card h-100">
-            <img class="company-logo w-100 h-100" src="/assets/img/company/company-logo-2.png">
-            <h5 class="company-name">PT. Hayat Televisi Entertaiment</h5>
-            <p class="company-location mb-0">Kotawaringin Timur</p>
+
+          <!-- Group 2 -->
+          <div class="logo-marquee-group" aria-hidden="true">
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-1.png" alt="">
+              <span class="company-name">Burger Vanny</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-2.png" alt="">
+              <span class="company-name">PT. Hayat Televisi</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-3.png" alt="">
+              <span class="company-name">CV. Mecca Network</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo rounded-circle" src="./assets/img/company/company-logo-4.jpg" alt="">
+              <span class="company-name">Grayscan Fotocopy</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo rounded-circle" src="./assets/img/company/company-logo-5.jpg" alt="">
+              <span class="company-name">Youni Kost</span>
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4 col-xxl-2">
-          <div class="company-card h-100">
-            <img class="company-logo" src="/assets/img/company/company-logo-3.png">
-            <h5 class="company-name">CV. Mecca Network</h5>
-            <p class="company-location mb-0">Katingan</p>
+
+          <!-- Group 3 -->
+          <div class="logo-marquee-group" aria-hidden="true">
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-1.png" alt="">
+              <span class="company-name">Burger Vanny</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-2.png" alt="">
+              <span class="company-name">PT. Hayat Televisi</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-3.png" alt="">
+              <span class="company-name">CV. Mecca Network</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo rounded-circle" src="./assets/img/company/company-logo-4.jpg" alt="">
+              <span class="company-name">Grayscan Fotocopy</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo rounded-circle" src="./assets/img/company/company-logo-5.jpg" alt="">
+              <span class="company-name">Youni Kost</span>
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4 col-xxl-2">
-          <div class="company-card h-100">
-            <img class="company-logo rounded-circle" src="/assets/img/company/company-logo-4.jpg">
-            <h5 class="company-name">Grayscan Fotocopy</h5>
-            <p class="company-location mb-0">Kotawaringin Timur</p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4 col-xxl-2">
-          <div class="company-card h-100">
-            <img class="company-logo rounded-circle" src="/assets/img/company/company-logo-5.jpg">
-            <h5 class="company-name">Youni Kost</h5>
-            <p class="company-location mb-0">Kulon Progo</p>
+
+          <!-- Group 4 -->
+          <div class="logo-marquee-group" aria-hidden="true">
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-1.png" alt="">
+              <span class="company-name">Burger Vanny</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-2.png" alt="">
+              <span class="company-name">PT. Hayat Televisi</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo" src="./assets/img/company/company-logo-3.png" alt="">
+              <span class="company-name">CV. Mecca Network</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo rounded-circle" src="./assets/img/company/company-logo-4.jpg" alt="">
+              <span class="company-name">Grayscan Fotocopy</span>
+            </div>
+            <div class="company-logo-item">
+              <img class="company-logo rounded-circle" src="./assets/img/company/company-logo-5.jpg" alt="">
+              <span class="company-name">Youni Kost</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="footer-container p-4">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3  border-top">
-      <div class="col-md-4 d-flex align-items-center"> <a href="/" class="mb-3 me-2 mb-md-0  text-decoration-none lh-1"
-          aria-label="Bootstrap"> <svg class="bi" width="30" height="24" aria-hidden="true"></svg>
-          <use xlink:href="#bootstrap"></use>
+  <div class="footer-container py-4 px-3 px-md-5">
+    <footer class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <div class="d-flex align-items-center gap-2 text-center text-md-start">
+        <a href="/" class="text-decoration-none d-flex align-items-center gap-2 text-white">
+          <img src="/assets/img/rif-rounded.webp" alt="RIF Logo" width="28" height="28" class="rounded-circle">
+          <span class="fw-bold">RIFTH</span>
+        </a>
+        <span class="text-secondary mx-1">•</span>
+        <span class="text-secondary small">
+          Copyright © 2020 - <span id="currentYear"></span>
+        </span>
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <a class="footer-social-link" href="https://github.com/Rifzkhy" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
           </svg>
         </a>
-        <span class="mb-3 mb-md-0">
-          Copyright © 2022 - <span id="currentYear"></span>
-        </span>
-            <script>
-              (function () {
-                const startYear = 2022;
-                const now = new Date().getFullYear();
-                document.getElementById('currentYear').textContent = now === startYear ? startYear : now;
-              })();
-            </script>
-            </div>
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="" href="#" aria-label="Instagram"><svg class="bi" width="24" height="24"
-              aria-hidden="true">
-              <use xlink:href="#instagram"></use>
-            </svg></a></li>
-        <li class="ms-3"><a class="" href="#" aria-label="Facebook"><svg class="bi" width="24" height="24">
-              <use xlink:href="#facebook"></use>
-            </svg></a></li>
-      </ul>
+        <a class="footer-social-link" href="mailto:rifzkhys@gmail.com" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+          </svg>
+        </a>
+        <a class="footer-social-link" href="https://instagram.com/rifzkhy" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+          </svg>
+        </a>
+      </div>
     </footer>
+    <script>
+      (function () {
+        const startYear = 2022;
+        const now = new Date().getFullYear();
+        const currentYearEl = document.getElementById('currentYear');
+        if (currentYearEl) {
+          currentYearEl.textContent = now === startYear ? startYear : now;
+        }
+        const expYearEl = document.getElementById('expYear');
+        if (expYearEl) {
+          expYearEl.textContent = now + 3;
+        }
+      })();
+    </script>
   </div>
   </body>
   <script type="importmap">
@@ -406,29 +468,12 @@ NUM    : +62 821-3732-0498
           }
       }
       </script>
-      <script type="module" src="/assets/script/ascii.js"></script>
-<script type="text/javascript" src="/assets/script/vanilla-tilt.js"></script>
+<script type="module" src="/assets/script/ascii.js"></script>
+<script type="text/javascript" src="/assets/script/vanilla-tilt.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ImageGallery",
-    "name": "Foto Kegiatan Muhammad Rifzkhy All Fhayed",
-    "description": "Galeri dokumentasi kegiatan engineering dan proyek teknologi.",
-    "url": "/#documentation-section",
-    "image": [
-      "/assets/img/documentation/doc_1.jpg",
-      "/assets/img/documentation/doc_2.jpg",
-      "/assets/img/documentation/doc_3.jpg",
-      "/assets/img/documentation/doc_4.jpg",
-      "/assets/img/documentation/doc_5.jpg",
-      "/assets/img/documentation/doc_6.jpg"
-    ]
-  }
-</script>
-<script src="/assets/script/script.js"></script>
+  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+<script src="/assets/script/script.js" defer></script>
 <script>
   (() => {
     const blockedCombos = new Set([

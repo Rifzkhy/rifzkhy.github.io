@@ -25,10 +25,10 @@ camera.position.set(0, 2, 6);
 camera.lookAt(0, 0, 0);
 
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(container.clientWidth || window.innerWidth, container.clientHeight || window.innerHeight);
 
 const effect = new AsciiEffect(renderer, " .:-=+*#%@", { invert: true });
-effect.setSize(window.innerWidth, window.innerHeight);
+effect.setSize(container.clientWidth || window.innerWidth, container.clientHeight || window.innerHeight);
 effect.domElement.style.color = "#fff";
 effect.domElement.style.backgroundColor = "#0d6efd";
 effect.domElement.style.width = "100%";
@@ -58,9 +58,15 @@ directionalLight.position.set(2, 4, 5);
 scene.add(directionalLight);
 
 const clock = new THREE.Clock();
+let isVisible = true;
+let animationFrameId = null;
 
 function render() {
-    requestAnimationFrame(render);
+    if (!isVisible) {
+        animationFrameId = null;
+        return;
+    }
+    animationFrameId = requestAnimationFrame(render);
     const elapsed = clock.getElapsedTime();
     const positions = waveGeometry.attributes.position;
     for (let i = 0; i < positions.count; i++) {
@@ -75,11 +81,31 @@ function render() {
     effect.render(scene, camera);
 }
 
+// Pause rendering when container is scrolled off-screen or page is hidden
+const observer = new IntersectionObserver(
+    (entries) => {
+        const entry = entries[0];
+        isVisible = entry.isIntersecting && !document.hidden;
+        if (isVisible && !animationFrameId) {
+            render();
+        }
+    },
+    { threshold: 0.05 }
+);
+observer.observe(container);
+
+document.addEventListener("visibilitychange", () => {
+    isVisible = !document.hidden && (container.getBoundingClientRect().bottom > 0);
+    if (isVisible && !animationFrameId) {
+        render();
+    }
+});
+
 render();
 
 window.addEventListener("resize", () => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const width = container.clientWidth || window.innerWidth;
+    const height = container.clientHeight || window.innerHeight;
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
